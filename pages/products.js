@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image';
 const test = process.env.PUBLIC_URL
 console.log('######test '+test);
 
@@ -50,8 +51,8 @@ const products = () => {
               >
                 <div className="tit-area">
                   <p className="tit">
-                    <img
-                      src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/makemoney.svg"}
+                    <Image fill={true} 
+                      src="/resource/img/reform/mweb/new23/makemoney.svg"
                       alt="make money"
                     />
                   </p>
@@ -59,8 +60,8 @@ const products = () => {
                   <div className="video-area">
                     <video muted autoPlay playsInline loop></video>
                     <p className="poster">
-                      <img
-                        src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/video_sec0.png"}
+                      <Image fill={true} 
+                        src="/resource/img/reform/mweb/new23/video_sec0.png"
                         alt="poster"
                       />
                     </p>
@@ -74,44 +75,44 @@ const products = () => {
                           <div className="swiper-wrapper">
                             {}
                             <div className="swiper-slide">
-                              <img
-                                src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/intro_img1.png"}
+                              <Image fill={true} 
+                                src="/resource/img/reform/mweb/new23/intro_img1.png"
                                 alt="\uC0DD\uD65C\uD1B5\uC7A5"
                               />
                             </div>
                             <div className="swiper-slide">
-                              <img
-                                src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/intro_img2.png"}
+                              <Image fill={true} 
+                                src="/resource/img/reform/mweb/new23/intro_img2.png"
                                 alt="\uBAA8\uC784\uD1B5\uC7A5"
                               />
                             </div>
                             <div className="swiper-slide">
-                              <img
-                                src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/intro_img3.png"}
+                              <Image fill={true} 
+                                src="/resource/img/reform/mweb/new23/intro_img3.png"
                                 alt="\uD30C\uD0B9\uD1B5\uC7A5"
                               />
                             </div>
                             <div className="swiper-slide">
-                              <img
-                                src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/intro_img4.png"}
+                              <Image fill={true} 
+                                src="/resource/img/reform/mweb/new23/intro_img4.png"
                                 alt="\uC608\uAE08\uC801\uAE08"
                               />
                             </div>
                             <div className="swiper-slide">
-                              <img
-                                src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/intro_img5.png"}
+                              <Image fill={true} 
+                                src="/resource/img/reform/mweb/new23/intro_img5.png"
                                 alt="\uC2E0\uC6A9\uB300\uCD9C"
                               />
                             </div>
                             <div className="swiper-slide">
-                              <img
-                                src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/intro_img6.png"}
+                              <Image fill={true} 
+                                src="/resource/img/reform/mweb/new23/intro_img6.png"
                                 alt="\uB2F4\uBCF4\uB300\uCD9C"
                               />
                             </div>
                             <div className="swiper-slide">
-                              <img
-                                src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/intro_img7.png"}
+                              <Image fill={true} 
+                                src="/resource/img/reform/mweb/new23/intro_img7.png"
                                 alt="\uCCB4\uD06C\uCE74\uB4DC"
                               />
                             </div>
@@ -119,8 +120,8 @@ const products = () => {
                           </div>
                         </div>
                         <button type="button" className="btn-play">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/btn_play_light.svg"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/btn_play_light.svg"
                             alt="play"
                           />
                         </button>
@@ -155,14 +156,14 @@ const products = () => {
                         loop
                       ></video>
                       <p className="poster">
-                        <img
-                          src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/video_sec8.png"}
+                        <Image fill={true} 
+                          src="/resource/img/reform/mweb/new23/video_sec8.png"
                           alt="poster"
                         />
                       </p>
                       <button type="button" className="btn-play">
-                        <img
-                          src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/btn_play_dark.svg"}
+                        <Image fill={true} 
+                          src="/resource/img/reform/mweb/new23/btn_play_dark.svg"
                           alt="play"
                         />
                       </button>
@@ -190,26 +191,26 @@ const products = () => {
                     <div className="moim-swiper">
                       <div className="swiper-wrapper">
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/moim_01.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/moim_01.png"
                             alt="\uBAA8\uC784\uD1B5\uC7A5"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/moim_02.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/moim_02.png"
                             alt="\uBAA8\uC784\uD1B5\uC7A5"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/moim_03.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/moim_03.png"
                             alt="\uBAA8\uC784\uD1B5\uC7A5"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/moim_04.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/moim_04.png"
                             alt="\uBAA8\uC784\uD1B5\uC7A5"
                           />
                         </div>
@@ -239,14 +240,14 @@ const products = () => {
                     <div className="video-area">
                       <video muted autoPlay playsInline></video>
                       <p className="poster">
-                        <img
-                          src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/video_sec1.png"} 
+                        <Image fill={true} 
+                          src="/resource/img/reform/mweb/new23/video_sec1.png"
                           alt="poster"
                         />
                       </p>
                       <button type="button" className="btn-play">
-                        <img
-                          src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/btn_play_dark.svg"}
+                        <Image fill={true} 
+                          src="/resource/img/reform/mweb/new23/btn_play_dark.svg"
                           alt="play"
                         />
                       </button>
@@ -305,104 +306,104 @@ const products = () => {
                     <div className="logo-swiper" dir="ltr">
                       <div className="swiper-wrapper">
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall1.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall1.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall2.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall2.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall3.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall3.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall4.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall4.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall5.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall5.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall6.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall6.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall7.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall7.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall8.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall8.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall9.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall9.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall10.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall10.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall11.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall11.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall12.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall12.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall13.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall13.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall14.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall14.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall15.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall15.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall16.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall16.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall17.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall17.png"
                             alt="logo"
                           />
                         </div>
@@ -411,110 +412,110 @@ const products = () => {
                     <div className="logo-swiper mt10" dir="rtl">
                       <div className="swiper-wrapper">
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall18.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall18.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall19.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall19.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall20.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall20.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall21.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall21.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall22.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall22.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall23.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall23.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall24.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall24.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall25.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall25.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall26.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall26.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall27.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall27.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall28.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall28.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall29.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall29.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall30.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall30.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall31.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall31.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall32.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall32.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall33.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall33.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall34.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall34.png"
                             alt="logo"
                           />
                         </div>
                         <div className="swiper-slide">
-                          <img
-                            src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/logowall35.png"}
+                          <Image fill={true} 
+                            src="/resource/img/reform/mweb/new23/logowall35.png"
                             alt="logo"
                           />
                         </div>
@@ -525,14 +526,14 @@ const products = () => {
                       <div className="card-bnr">
                         <div className="flip">
                           <div className="front">
-                            <img
-                              src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/card_MY_02_F.png"}
+                            <Image fill={true} 
+                              src="/resource/img/reform/mweb/new23/card_MY_02_F.png"
                               alt
                             />
                           </div>
                           <div className="back">
-                            <img
-                              src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/card_MY_02_B.png"}
+                            <Image fill={true} 
+                              src="/resource/img/reform/mweb/new23/card_MY_02_B.png"
                               alt
                             />
                           </div>
@@ -575,14 +576,14 @@ const products = () => {
                         playsInline
                       ></video>
                       <p className="poster">
-                        <img
-                          src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/video_sec4.png"}
+                        <Image fill={true} 
+                          src="/resource/img/reform/mweb/new23/video_sec4.png"
                           alt="poster"
                         />
                       </p>
                       <button type="button" className="btn-play">
-                        <img
-                          src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/btn_play.svg"}
+                        <Image fill={true} 
+                          src="/resource/img/reform/mweb/new23/btn_play.svg"
                           alt="play"
                         />
                       </button>
@@ -769,8 +770,8 @@ const products = () => {
                       <li className="list-item">
                         <div className="img-figure">
                           <div className="label">
-                            <img
-                              src={process.env.PUBLIC_URL+"/resource/img/reform/icon/ico_benefit_stock.png"}
+                            <Image fill={true} 
+                              src="/resource/img/reform/icon/ico_benefit_stock.png"
                               alt
                             />
                           </div>
@@ -793,8 +794,8 @@ const products = () => {
                       <li className="list-item">
                         <div className="img-figure">
                           <div className="label">
-                            <img
-                              src={process.env.PUBLIC_URL+"/resource/img/reform/icon/ico_benefit_carrot.png"}
+                            <Image fill={true} 
+                              src="/resource/img/reform/icon/ico_benefit_carrot.png"
                               alt
                             />
                           </div>
@@ -817,8 +818,8 @@ const products = () => {
                       <li className="list-item">
                         <div className="img-figure">
                           <div className="label">
-                            <img
-                              src={process.env.PUBLIC_URL+"/resource/img/reform/icon/ico_benefit_luckygift.png"}
+                            <Image fill={true} 
+                              src="/resource/img/reform/icon/ico_benefit_luckygift.png"
                               alt
                             />
                           </div>
@@ -843,8 +844,8 @@ const products = () => {
                       <li className="list-item">
                         <div className="img-figure">
                           <div className="label">
-                            <img
-                              src={process.env.PUBLIC_URL+"/resource/img/reform/icon/ico_benefit_congratulate.png"}
+                            <Image fill={true} 
+                              src="/resource/img/reform/icon/ico_benefit_congratulate.png"
                               alt
                             />
                           </div>
@@ -869,8 +870,8 @@ const products = () => {
                       <li className="list-item">
                         <div className="img-figure">
                           <div className="label">
-                            <img
-                              src={process.env.PUBLIC_URL+"/resource/img/reform/icon/ico_benefit_stock.png"}
+                            <Image fill={true} 
+                              src="/resource/img/reform/icon/ico_benefit_stock.png"
                               alt
                             />
                           </div>
@@ -902,8 +903,8 @@ const products = () => {
                   <div className="video-area">
                     <video muted autoPlay playsInline ></video>
                     <p className="poster">
-                      <img
-                        src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/video_sec7.png"}
+                      <Image fill={true} 
+                        src="/resource/img/reform/mweb/new23/video_sec7.png"
                         alt="poster"
                       />
                     </p>
@@ -999,8 +1000,8 @@ const products = () => {
                 target="_blank"
                 title="\uCF00\uC774\uBC45\uD06C \uD398\uC774\uC2A4\uBD81 \uC0C8\uCC3D\uC73C\uB85C \uC5F4\uAE30"
               >
-                <img
-                  src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/ic_mw_fb.svg"}
+                <Image fill={true} 
+                  src="/resource/img/reform/mweb/new23/ic_mw_fb.svg"
                   alt="\uD398\uC774\uC2A4\uBD81"
                 />
               </a>
@@ -1011,8 +1012,8 @@ const products = () => {
                 target="_blank"
                 title="\uCF00\uC774\uBC45\uD06C \uBE14\uB85C\uADF8 \uC0C8\uCC3D\uC73C\uB85C \uC5F4\uAE30"
               >
-                <img
-                  src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/ic_mw_blog.svg"}
+                <Image fill={true} 
+                  src="/resource/img/reform/mweb/new23/ic_mw_blog.svg"
                   alt="\uBE14\uB85C\uADF8"
                 />
               </a>
@@ -1023,8 +1024,8 @@ const products = () => {
                 target="_blank"
                 title="\uCF00\uC774\uBC45\uD06C \uC720\uD29C\uBE0C \uC0C8\uCC3D\uC73C\uB85C \uC5F4\uAE30"
               >
-                <img
-                  src={process.env.PUBLIC_URL+"/resource/img/reform/mweb/new23/ic_mw_youtube.svg"}
+                <Image fill={true} 
+                  src="/resource/img/reform/mweb/new23/ic_mw_youtube.svg"
                   alt="\uC720\uD29C\uBE0C"
                 />
               </a>
