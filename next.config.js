@@ -9,8 +9,18 @@ const nextConfig = {
       },
     ],
   },
-  env:{
-    PUBLIC_URL:'https://m.kbanknow.com'
+  env: {
+    PUBLIC_URL: 'https://m.kbanknow.com'
+  },
+  async rewrites() {
+    return {
+      fallback: [
+        {
+        source: '/ib20/act/:path*',
+        destination: 'https://m.kbanknow.com/ib20/act/:path*'
+        }
+      ]
+    }
   }
 }
 
