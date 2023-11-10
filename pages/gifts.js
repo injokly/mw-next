@@ -7,21 +7,30 @@ import { callAction } from './api/fetch.js';
 
 
 const gifts = () => {
-  var eventList = [];
-
-  const uri = 'https://m.kbanknow.com/ib20/act/MWBMAN0000000101A?ib20_media=MDA00003'
+  const uri = '/ib20/act/MWBMAN0000000101A?ib20_media=MDA00003'
   let params = { 'pStrCscTitle': 'title Test' };
-  const [evt, setEvt] = useState([]);
+  const [eventList, setEventList] = useState([]);
   useEffect(() => {
-    axios.post(`${uri}`, params)
-      .then(res => {
-        console.log(`useEffect axios data : ` + res);
-        decodedEventList = JSON.parse(decodeURIComponent(JSON.stringify(res)).replace(/\+g/, " "))
-        eventList = decodedEventList.data._msg_._body || {};
-        setData(eventList)
+    // axios.post(`${uri}`, params)
+    // .then(res => {
+    //   console.log(`useEffect axios data : ` + res);
+    //   var decodedEventList = JSON.parse(decodeURIComponent(JSON.stringify(res)).replace(/\+g/, " "))
+    //   eventList = decodedEventList || {};
+    //   setData(eventList)
+    // })
+    // .catch(function (error) {
+    //   console.log(error)
+    //   setData({'main':'sodfijsidfjas'})
+    // })
+    fetch(`/datas/gifts.json`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        setEventList(data)
       })
       .catch(function (error) {
-        setEvt({'main':'sodfijsidfjas'})
+        console.log(error)
+        setEventList({ 'main': 'sodfijsidfjas' })
       })
   }, [])
 
@@ -49,17 +58,18 @@ const gifts = () => {
 
                         <div class="benefit-list-group">
                           <ul>
+                            {eventList.map((evt) => (
                             <li class="list-item">
                               <div class="img-figure">
                                 <div class="label">
-                                  <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/icon/ico_benefit_stock.png"} />
+                                  <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/icon/"+evt.ICON_FILE_NM} />
                                 </div>
                               </div>
                               <a class="tap-link" href="#none">
                                 <div class="col-cont">
-                                  <div class="txt-eyebrow">주식계좌만들고</div>
-                                  <div class="txt-ttl">테슬라, 넷플릭스 주주되기 <div class="tag positive">
-                                    <span class="txt">앵콜</span>
+                                  <div class="txt-eyebrow">{decodeURIComponent(evt.TTL_CND).replace(/\+/g, " ")}</div>
+                                  <div class="txt-ttl">{decodeURIComponent(evt.TTL_BNFS).replace(/\+/g, " ")}<div class="tag positive">
+                                    <span class="txt">{decodeURIComponent(evt.EVNT_TAG).replace(/\+/g, " ")}</span>
                                   </div>
                                   </div>
                                 </div>
@@ -68,6 +78,7 @@ const gifts = () => {
                                 </div>
                               </a>
                             </li>
+                            ))}
                             <li class="list-item">
                               <div class="img-figure">
                                 <div class="label">

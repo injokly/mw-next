@@ -1,7 +1,7 @@
 import axios from 'axios'
 //1. HTTP Request & Response 관련된 기본 설정 
-
-// export const callAction = axios.post(`${url}`, postDto)
+// let params = { 'pStrCscTitle': 'title Test' };
+// export const callAction = axios.post(`/ib20/act/MWBMAN0000000101A?ib20_media=MDA00003`, params)
 // .then(response => console.log(`requestPost test : `+response))
 // .catch(error => console.log(error))
 
