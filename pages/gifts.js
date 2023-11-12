@@ -1,14 +1,14 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
-import HeadInfo from '@/components/HeadInfo'
-import Image from 'next/image'
-import axios from 'axios'
-import { callAction } from './api/fetch.js';
-
+import React from "react";
+import { useState, useEffect, useRef } from "react";
+import HeadInfo from "@/components/HeadInfo";
+import Image from "next/image";
+import { useRouter } from "next/router.js";
+import axios from "axios";
+import { callAction } from "./api/fetch.js";
 
 const gifts = () => {
-  const uri = '/ib20/act/MWBMAN0000000101A?ib20_media=MDA00003'
-  let params = { 'pStrCscTitle': 'title Test' };
+  const uri = "/ib20/act/MWBMAN0000000101A?ib20_media=MDA00003";
+  let params = { pStrCscTitle: "title Test" };
   const [eventList, setEventList] = useState([]);
   useEffect(() => {
     // axios.post(`${uri}`, params)
@@ -25,150 +25,109 @@ const gifts = () => {
     fetch(`/datas/gifts.json`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
-        setEventList(data)
+        console.log(data);
+        setEventList(data);
       })
       .catch(function (error) {
-        console.log(error)
-        setEventList({ 'main': 'sodfijsidfjas' })
-      })
-  }, [])
+        console.log(error);
+        setEventList({ main: "sodfijsidfjas" });
+      });
+  }, []);
 
+  const nameInput = useRef(3);
+  const onClick = () => {
+    console.log("clicked " + nameInput + Object.values(nameInput.current));
+
+    nameInput.current;
+  };
+  const nextId = useRef(4);
+  const onCreate = () => {
+    nextId.current += 1;
+  };
+  console.log(nextId.current);
+
+  const router = useRouter();
   return (
     <div>
       <HeadInfo></HeadInfo>
       <h1>혜택</h1>
 
-
       <div id="container">
         <div id="container_inner">
-
           <div id="content">
+            <div className="content type-renewal">
+              <h1 className="blind">케이뱅크</h1>
+              <h2 className="blind">혜택존</h2>
 
-            <div class="content type-renewal">
-
-              <h1 class="blind">케이뱅크</h1>
-              <h2 class="blind">혜택존</h2>
-
-              <div class="container-component mt20 mb20">
-                <div class="component-tab no-space">
-                  <div class="tab-group">
-                    <div class="tab-content-group">
-                      <div class="tab-content">
-
-                        <div class="benefit-list-group">
+              <div className="container-component mt20 mb20">
+                <div className="component-tab no-space">
+                  <div className="tab-group">
+                    <div className="tab-content-group">
+                      <div className="tab-content">
+                        <div className="benefit-list-group">
                           <ul>
                             {eventList.map((evt) => (
-                            <li class="list-item">
-                              <div class="img-figure">
-                                <div class="label">
-                                  <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/icon/"+evt.ICON_FILE_NM} />
-                                </div>
-                              </div>
-                              <a class="tap-link" href="#none">
-                                <div class="col-cont">
-                                  <div class="txt-eyebrow">{decodeURIComponent(evt.TTL_CND).replace(/\+/g, " ")}</div>
-                                  <div class="txt-ttl">{decodeURIComponent(evt.TTL_BNFS).replace(/\+/g, " ")}<div class="tag positive">
-                                    <span class="txt">{decodeURIComponent(evt.EVNT_TAG).replace(/\+/g, " ")}</span>
-                                  </div>
+                              <li className="list-item">
+                                <div className="img-figure">
+                                  <div ref={nameInput} className="label">
+                                    <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/not/" + decodeURIComponent(evt.ICON_FILE_NM)} />
                                   </div>
                                 </div>
-                                <div class="col-state">
-                                  <i class="ico-arrow-link" aria-hidden="true"></i>
-                                </div>
-                              </a>
-                            </li>
+                                <a onClick={() => router.push(`/gift/${evt.EVNT_ID}`)} className="tap-link" href="#none">
+                                  <div className="col-cont">
+                                    <div className="txt-eyebrow">{decodeURIComponent(evt.TTL_CND).replace(/\+/g, " ")}</div>
+                                    <div className="txt-ttl">
+                                      {decodeURIComponent(evt.TTL_BNFS).replace(/\+/g, " ")}
+                                      <div className="tag positive">
+                                        <span className="txt">{decodeURIComponent(evt.EVNT_TAG).replace(/\+/g, " ")}</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div className="col-state">
+                                    <i className="ico-arrow-link" aria-hidden="true"></i>
+                                  </div>
+                                </a>
+                              </li>
                             ))}
-                            <li class="list-item">
-                              <div class="img-figure">
-                                <div class="label">
-                                  <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/icon/ico_benefit_carrot.png"} />
-                                </div>
-                              </div>
-                              <a class="tap-link" href="#none">
-                                <div class="col-cont">
-                                  <div class="txt-eyebrow">주식계좌만들고</div>
-                                  <div class="txt-ttl">테슬라, 넷플릭스 주주되기</div>
-                                </div>
-                                <div class="col-state">
-                                  <i class="ico-arrow-link" aria-hidden="true"></i>
-                                </div>
-                              </a>
-                            </li>
-                            <li class="list-item">
-                              <div class="img-figure">
-                                <div class="label">
-                                  <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/icon/ico_benefit_luckygift.png"} />
-                                </div>
-                              </div>
-                              <a class="tap-link" href="#none">
-                                <div class="col-cont">
-                                  <div class="txt-eyebrow">주식계좌만들고</div>
-                                  <div class="txt-ttl">테슬라, 넷플릭스 주주되기</div>
-                                </div>
-                                <div class="col-state">
-                                  <i class="ico-arrow-link" aria-hidden="true"></i>
-                                </div>
-                              </a>
-                            </li>
-                            <li class="list-item">
-                              <div class="img-figure">
-                                <div class="label">
-                                  <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/icon/ico_benefit_congratulate.png"} />
-                                </div>
-                              </div>
-                              <a class="tap-link" href="#none">
-                                <div class="col-cont">
-                                  <div class="txt-eyebrow">주식계좌만들고</div>
-                                  <div class="txt-ttl">테슬라, 넷플릭스 주주되기</div>
-                                </div>
-                                <div class="col-state">
-                                  <i class="ico-arrow-link" aria-hidden="true"></i>
-                                </div>
-                              </a>
-                            </li>
 
-                            <li class="list-item more">
-                              <div class="img-figure"></div>
-                              <a class="tap-link" href="#none">
-                                <div class="col-cont">
-                                  <div class="txt-ttl">더 많은 혜택보기</div>
+                            <li className="list-item more">
+                              <div className="img-figure"></div>
+                              <a className="tap-link" href="#none">
+                                <div className="col-cont">
+                                  <div className="txt-ttl">더 많은 혜택보기</div>
                                 </div>
-                                <div class="col-state">
-                                  <i class="ico-arrow-link" aria-hidden="true"></i>
+                                <div className="col-state">
+                                  <i className="ico-arrow-link" aria-hidden="true"></i>
                                 </div>
                               </a>
                             </li>
                           </ul>
                         </div>
 
-                        <div class="benefit-nodata-group">
+                        <div className="benefit-nodata-group">
                           <dl>
-                            <dt class="tit">아직 관심혜택이 없어요</dt>
-                            <dd class="txt">혜택별 ♡버튼을 눌러서 나만의 관심혜택으로 추가해보세요</dd>
+                            <dt className="tit">아직 관심혜택이 없어요</dt>
+                            <dd className="txt">혜택별 ♡버튼을 눌러서 나만의 관심혜택으로 추가해보세요</dd>
                           </dl>
                         </div>
-
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="component-btn">
-                  <div class="btn-group">
-                    <button class="btn-lv01 divider-gray" type="button">
-                      <span class="txt">종료된 혜택</span>
+                <div className="component-btn">
+                  <div className="btn-group">
+                    <button className="btn-lv01 divider-gray" type="button">
+                      <span className="txt">종료된 혜택</span>
                     </button>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default gifts
+export default gifts;
