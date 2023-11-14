@@ -25,7 +25,6 @@ const gifts = () => {
     fetch(`/datas/gifts.json`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setEventList(data);
       })
       .catch(function (error) {
@@ -66,7 +65,7 @@ const gifts = () => {
                       <div className="tab-content">
                         <div className="benefit-list-group">
                           <ul>
-                            {eventList.map((evt) => (
+                            {eventList.length!==0 ? eventList.map((evt) => (
                               <li className="list-item">
                                 <div className="img-figure">
                                   <div ref={nameInput} className="label">
@@ -88,27 +87,15 @@ const gifts = () => {
                                   </div>
                                 </a>
                               </li>
-                            ))}
-
-                            <li className="list-item more">
-                              <div className="img-figure"></div>
-                              <a className="tap-link" href="#none">
-                                <div className="col-cont">
-                                  <div className="txt-ttl">더 많은 혜택보기</div>
-                                </div>
-                                <div className="col-state">
-                                  <i className="ico-arrow-link" aria-hidden="true"></i>
-                                </div>
-                              </a>
-                            </li>
+                            )) :
+                              <div className="benefit-nodata-group">
+                                <dl>
+                                  <dt className="tit">아직 관심혜택이 없어요</dt>
+                                  <dd className="txt">혜택별 ♡버튼을 눌러서 나만의 관심혜택으로 추가해보세요</dd>
+                                </dl>
+                              </div>
+                            }
                           </ul>
-                        </div>
-
-                        <div className="benefit-nodata-group">
-                          <dl>
-                            <dt className="tit">아직 관심혜택이 없어요</dt>
-                            <dd className="txt">혜택별 ♡버튼을 눌러서 나만의 관심혜택으로 추가해보세요</dd>
-                          </dl>
                         </div>
                       </div>
                     </div>

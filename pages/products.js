@@ -1,7 +1,5 @@
 import React from "react";
 import Image from "next/image";
-const test = process.env.PUBLIC_URL;
-console.log("######test " + test);
 
 const products = () => {
   return (
