@@ -6,7 +6,6 @@ import Script from "next/script";
 import { useState, useEffect, useRef } from "react";
 //import fullscroll from "@/script/fullscroll.js"
 
-
 export default function Home({ posts }) {
   console.log(posts);
   const [isLoading, setIsLoading] = useState([true]);
@@ -22,8 +21,8 @@ export default function Home({ posts }) {
   }, []);
 
   return (
-    
-    <div id="mWebWrap">
+    // mewbMain은 asis에서 body.mwebMain 으로 돼있는데, body 안에 넣을 수 없어서 div 안에 className 으로 넣음
+    <div id="mWebWrap" className="mwebMain">
       <Script strategy="afterInteractive" src={process.env.PUBLIC_URL + "/resource/js/cmm/lib/swiper.min.js"} onLoad={() => {
         var fullScrollElement = document.querySelector('[data-role="animation-container"]');
         var options = fullScrollElement.dataset;

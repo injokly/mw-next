@@ -5,33 +5,44 @@ import Image from "next/image";
 import { useRouter } from "next/router.js";
 import axios from "axios";
 import { callAction } from "./api/fetch.js";
+import useSWR from 'swr'
+
 
 const gifts = () => {
   const uri = "/ib20/act/MWBMAN0000000101A?ib20_media=MDA00003";
   let params = { pStrCscTitle: "title Test" };
   const [eventList, setEventList] = useState([]);
-  useEffect(() => {
-    // axios.post(`${uri}`, params)
-    // .then(res => {
-    //   console.log(`useEffect axios data : ` + res);
-    //   var decodedEventList = JSON.parse(decodeURIComponent(JSON.stringify(res)).replace(/\+g/, " "))
-    //   eventList = decodedEventList || {};
-    //   setData(eventList)
-    // })
-    // .catch(function (error) {
-    //   console.log(error)
-    //   setData({'main':'sodfijsidfjas'})
-    // })
-    fetch(`/datas/gifts.json`)
-      .then((res) => res.json())
-      .then((data) => {
-        setEventList(data);
-      })
-      .catch(function (error) {
-        console.log(error);
-        setEventList({ main: "sodfijsidfjas" });
-      });
-  }, []);
+  const fetcher = () => fetch(uri)
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(`useSwr data` + JSON.stringify(data._msg_._body_.eventListAll));
+    setEventList(data._msg_._body_.eventListAll);
+    console.log(eventList);
+  })
+  // useEffect(() => {
+  // axios.post(`${uri}`, params)
+  // .then(res => {
+  //   console.log(`useEffect axios data : ` + res);
+  //   var decodedEventList = JSON.parse(decodeURIComponent(JSON.stringify(res)).replace(/\+g/, " "))
+  //   eventList = decodedEventList || {};
+  //   setData(eventList)
+  // })
+  // .catch(function (error) {
+  //   console.log(error)
+  //   setData({'main':'sodfijsidfjas'})
+  // })
+
+
+  // fetch(`/datas/gifts.json`)
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     setEventList(data);
+  //   })
+  //   .catch(function (error) {
+  //     console.log(error);
+  //     setEventList({ main: "sodfijsidfjas" });
+  //   });
+  // }, []);
 
   const nameInput = useRef(3);
   const onClick = () => {
@@ -44,6 +55,10 @@ const gifts = () => {
     nextId.current += 1;
   };
   console.log(nextId.current);
+    
+  const { data, error, isLoading } = useSWR(uri, fetcher)
+  if (error) return <div>Failed to load</div>
+  if (isLoading) return <div class="loadingio-spinner-spinner-2fyaftvso4h"><div class="ldio-ivrbut54yo"></div></div>
 
   const router = useRouter();
   return (
@@ -57,7 +72,6 @@ const gifts = () => {
             <div className="content type-renewal">
               <h1 className="blind">케이뱅크</h1>
               <h2 className="blind">혜택존</h2>
-
               <div className="container-component mt20 mb20">
                 <div className="component-tab no-space">
                   <div className="tab-group">
