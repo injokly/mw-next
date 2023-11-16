@@ -79,8 +79,10 @@ const gifts = () => {
                       <div className="tab-content">
                         <div className="benefit-list-group">
                           <ul>
-                            {eventList.length !== 0 ? eventList.map((evt) => (
-                              <li className="list-item">
+                            {eventList.length !== 0 ? eventList
+                            .filter((evt)=>evt.END_YN==='N')
+                            .map((evt) => (
+                              <li key={evt.EVNT_ID} className="list-item">
                                 <div className="img-figure">
                                   <div ref={nameInput} className="label">
                                     <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/not/" + decodeURIComponent(evt.ICON_FILE_NM)} />
