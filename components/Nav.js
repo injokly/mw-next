@@ -24,7 +24,7 @@ const Nav = () => {
                                     <Link href="/products" className={router.pathname == '/products' ? 'on' : ''}>상품</Link>
                                 </li>
                                 <li>
-                                    <Link href="/gifts" className={router.pathname == '/gifts' ? 'on' : ''}>혜택</Link>
+                                    <Link href="/gifts" className={router.pathname == '/gifts'||router.pathname ==  '/gift/[id]' ? 'on' : ''}>혜택</Link>
                                 </li>
                             </ul>
                         </div>

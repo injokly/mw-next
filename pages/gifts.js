@@ -64,8 +64,6 @@ const gifts = () => {
   return (
     <div>
       <HeadInfo></HeadInfo>
-      <h1>혜택</h1>
-
       <div id="container">
         <div id="container_inner">
           <div id="content">

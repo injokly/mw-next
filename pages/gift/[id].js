@@ -9,6 +9,7 @@ import { useRecoilState } from "recoil";
 
 const Detail = () => {
   const router = useRouter();
+  console.log(router);
   const { id } = router.query;
 
   const uri = `/ib20/act/CMMNOT0201000200A?ib20_media=MDA00003&joinMode=N&evntId=` + id;
