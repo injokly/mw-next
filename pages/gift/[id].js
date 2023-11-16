@@ -73,9 +73,11 @@ const Detail = () => {
   const removeChildren = (parent, ...children) => children.forEach(child => parent.removeChild(child))
 
   const createMarkup = () => {
-    //useEffect(() => {
+    useEffect(() => {
       const tick = setTimeout(() => {
         console.log(`hihihih`);
+
+//        let parent = $(cntnt)
         let parent = document.querySelector('#danger');
         const targets = parent.querySelectorAll('.mob_show, .pc_show');
         removeChildren(parent, ...targets);
@@ -90,7 +92,7 @@ const Detail = () => {
          // \document.getElementsByClassName('mob_show').remove();
         // document.getElementsByClassName('pc_show').remove();
       }, 1);
-    //}, [])
+    }, [])
     return { __html: cntnt }
   }
   return (
