@@ -3,28 +3,33 @@ import Link from 'next/link'
 import React from "react";
 import Image from "next/image";
 import Script from "next/script";
+import { useState, useEffect, useRef } from "react";
 //import fullscroll from "@/script/fullscroll.js"
 
-const { useEffect } = require("react");
 
 export default function Home({ posts }) {
   console.log(posts);
+  const [isLoading, setIsLoading] = useState([true]);
   useEffect(() => {
     const timeout = setTimeout(() => {
       var fullScrollElement = document.querySelector('[data-role="animation-container"]');
       var options = fullScrollElement.dataset;
       fullScrollAnimation.init(fullScrollElement, options)
+      setIsLoading(false);
     }, 1000);
 
     return () => clearTimeout(timeout);
   }, []);
+
   return (
+    
     <div id="mWebWrap">
-      <Script async src={process.env.PUBLIC_URL + "/resource/js/cmm/lib/swiper.min.js"} onLoad={() => {
+      <Script strategy="afterInteractive" src={process.env.PUBLIC_URL + "/resource/js/cmm/lib/swiper.min.js"} onLoad={() => {
         var fullScrollElement = document.querySelector('[data-role="animation-container"]');
         var options = fullScrollElement.dataset;
         fullScrollAnimation.init(fullScrollElement, options);
       }} />
+      <Script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"/>
       <Script async src={process.env.PUBLIC_URL + "/resource/js/cmm/fullscroll.js"} />
       <Script async src={process.env.PUBLIC_URL + "/resource/js/m-ui.js"} />
 

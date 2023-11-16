@@ -2,10 +2,12 @@ import React from "react";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import Script from "next/script";
 
 const products = () => {
   const uri = "/ib20/act/MWBMAN0000000102A?ib20_media=MDA00003";
   let params = { pStrCscTitle: "title Test" };
+  const [isLoading, setIsLoading] = useState([true]);
   const [tabList, setTabList] = useState([]);
   const [pdRcmdFavSvrList1, setPdRcmdFavSvrList1] = useState([]);
   const [pdRcmdFavSvrList2, setPdRcmdFavSvrList2] = useState([]);
@@ -53,14 +55,24 @@ const products = () => {
         setPdRcmdFavSvrList1(data.pdRcmdFavSvrList1);
         setPdRcmdFavSvrList2(data.pdRcmdFavSvrList2);
         setPdRcmdFavSvrList3(data.pdRcmdFavSvrList3);
+        setIsLoading(false);
+
       })
       .catch(function (error) {
         console.log(error);
       });
   }, []);
 
+  // data binding 후 html 보여줌
+  if (isLoading) {
+    return null;
+  }
+
   return (
     <div id="mWebWrap">
+      <Script strategy="afterInteractive" src={process.env.PUBLIC_URL + "/resource/js/cmm/lib/swiper.min.js"} onLoad={() => {
+        let prdBannerSwiper = new Swiper('.product-carousel-group.ui-swiper .swiper-container', { spaceBetween: 10, loop: false })
+      }} />
       <div id="container">
         <div id="container_inner">
           <div id="content">

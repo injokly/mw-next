@@ -16,6 +16,9 @@ const Nav = () => {
                         <div className="mweb-main-gnb">
                             <ul>
                                 <li>
+                                <a href="https://m.kbanknow.com/ib20/mnu/MWBMAN020000" className="tap-link">앱 상품</a>
+                                </li>
+                                <li>
                                     <Link href="/products">상품</Link>
                                 </li>
                                 <li>
