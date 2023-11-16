@@ -65,21 +65,22 @@ const gifts = () => {
                       <div className="tab-content">
                         <div className="benefit-list-group">
                           <ul>
-                            {eventList.length!==0 ? eventList.map((evt) => (
+                            {eventList.length !== 0 ? eventList.map((evt) => (
                               <li className="list-item">
                                 <div className="img-figure">
                                   <div ref={nameInput} className="label">
                                     <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/not/" + decodeURIComponent(evt.ICON_FILE_NM)} />
                                   </div>
                                 </div>
-                                <a onClick={() => router.push(`/gift/${evt.EVNT_ID}`)} className="tap-link" href="#none">
+                                <a onClick={() => router.push(`/gift/${evt.EVNT_ID}`)} className="tap-link">
                                   <div className="col-cont">
                                     <div className="txt-eyebrow">{decodeURIComponent(evt.TTL_CND).replace(/\+/g, " ")}</div>
                                     <div className="txt-ttl">
                                       {decodeURIComponent(evt.TTL_BNFS).replace(/\+/g, " ")}
-                                      <div className="tag positive">
+                                      {evt.EVNT_TAG && <div className="tag positive">
                                         <span className="txt">{decodeURIComponent(evt.EVNT_TAG).replace(/\+/g, " ")}</span>
                                       </div>
+                                      }
                                     </div>
                                   </div>
                                   <div className="col-state">

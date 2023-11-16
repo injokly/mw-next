@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   images: {
     remotePatterns: [
       {
@@ -17,7 +17,7 @@ const nextConfig = {
       fallback: [
         {
           source: '/ib20/act/:path*',
-          destination: 'https://www.kbanknow.com/ib20/act/:path*',
+          destination: 'https://m.kbanknow.com/ib20/act/:path*',
         },
         {
           source: '/resource/img/:path*',

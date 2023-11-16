@@ -2,15 +2,32 @@ import Head from 'next/head'
 import Link from 'next/link'
 import React from "react";
 import Image from "next/image";
+import Script from "next/script";
+//import fullscroll from "@/script/fullscroll.js"
+
+const { useEffect } = require("react");
 
 export default function Home({ posts }) {
   console.log(posts);
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      var fullScrollElement = document.querySelector('[data-role="animation-container"]');
+      var options = fullScrollElement.dataset;
+      fullScrollAnimation.init(fullScrollElement, options)
+    }, 1000);
 
+    return () => clearTimeout(timeout);
+  }, []);
   return (
     <div id="mWebWrap">
-      <script async src={process.env.PUBLIC_URL + "/resource/js/cmm/fullscroll.js"}></script>
-      <script async src={process.env.PUBLIC_URL + "/resource/js/cmm/swiper.min.js"}></script>
-      <link rel="stylesheet" type="text/css" href={process.env.PUBLIC_URL + "/resource/css/mwb/kbank_renew.css"}></link>
+      <Script async src={process.env.PUBLIC_URL + "/resource/js/cmm/lib/swiper.min.js"} onLoad={() => {
+        var fullScrollElement = document.querySelector('[data-role="animation-container"]');
+        var options = fullScrollElement.dataset;
+        fullScrollAnimation.init(fullScrollElement, options);
+      }} />
+      <Script async src={process.env.PUBLIC_URL + "/resource/js/cmm/fullscroll.js"} />
+      <Script async src={process.env.PUBLIC_URL + "/resource/js/m-ui.js"} />
+
       <div id="container">
         <div id="container_inner">
           <div id="content">
@@ -24,12 +41,12 @@ export default function Home({ posts }) {
               </div>
               { }
               { }
-              <div className="scroll-container active" data-role="animation-container">
+              <div className="scroll-container" data-role="animation-container">
                 { }
-                <div className="scroll-section section0" data-section-title="\uCF00\uC774\uBC45\uD06C \uC2DC\uC791\uD558\uAE30">
+                <div className="scroll-section section0" data-section-title="케이뱅크 시작하기">
                   <div className="tit-area">
                     <p className="tit">
-                      <img src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/makemoney.svg"} alt="make money" />
+                      <Image width={0} height={16} preload={true} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/makemoney.svg"} alt="make money" />
                     </p>
                     <h3>혜택이 남다른</h3>
                     <div className="video-area">
@@ -38,7 +55,7 @@ export default function Home({ posts }) {
                         <source src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/video_se0.webm"} type="video/webm"></source>
                       </video>
                       <p className="poster">
-                        <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/video_sec0.png"} alt="poster" />
+                        <Image width={230} height={230} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/video_sec0.png"} alt="poster" />
                       </p>
                     </div>
                   </div>
@@ -50,25 +67,25 @@ export default function Home({ posts }) {
                             <div className="swiper-wrapper">
                               { }
                               <div className="swiper-slide">
-                                <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img1.png"} alt="생활통장"/>
+                                <Image width={224} height={224} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img1.png"} priority={true} alt="생활통장" />
                               </div>
                               <div className="swiper-slide">
-                                <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img2.png"} alt="모임통장"/>
+                                <Image width={224} height={224} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img2.png"} alt="모임통장" />
                               </div>
                               <div className="swiper-slide">
-                                <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img3.png"} alt="파킹통장"/>
+                                <Image width={224} height={224} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img3.png"} alt="파킹통장" />
                               </div>
                               <div className="swiper-slide">
-                                <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img4.png"} alt="예금적금"/>
+                                <Image width={224} height={224} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img4.png"} alt="예금적금" />
                               </div>
                               <div className="swiper-slide">
-                                <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img5.png"} />
+                                <Image width={224} height={224} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img5.png"} />
                               </div>
                               <div className="swiper-slide">
-                                <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img6.png"} />
+                                <Image width={224} height={224} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img6.png"} />
                               </div>
                               <div className="swiper-slide">
-                                <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img7.png"} />
+                                <Image width={224} height={224} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img7.png"} />
                               </div>
                               { }
                             </div>
@@ -83,7 +100,7 @@ export default function Home({ posts }) {
                 </div>
                 { }
                 { }
-                <div className="scroll-section section8" data-section-title="\uC0DD\uD65C\uD1B5\uC7A5 \uB9CC\uB4E4\uAE30">
+                <div className="scroll-section section8" data-section-title="생활통장">
                   <div className="tit-area">
                     <h3>생활통장</h3>
                     <h4>
@@ -112,7 +129,7 @@ export default function Home({ posts }) {
                   </div>
                 </div>
                 { }
-                <div className="scroll-section section9" data-section-title="\uBAA8\uC784 \uC2DC\uC791\uD558\uAE30">
+                <div className="scroll-section section9" data-section-title="모임통장">
                   <div className="tit-area">
                     <h3>모임통장</h3>
                     <h4>
@@ -175,7 +192,7 @@ export default function Home({ posts }) {
                   </div>
                 </div>
                 { }
-                <div className="scroll-section section2" data-section-title="\uB300\uCD9C\uD55C\uB3C4 \uC54C\uC544\uBCF4\uAE30">
+                <div className="scroll-section section2" data-section-title="대출한도 알아보기">
                   <div className="tit-area">
                     <h3>아파트담보대출</h3>
                     <h4>
@@ -199,7 +216,7 @@ export default function Home({ posts }) {
                   </div>
                 </div>
                 { }
-                <div className="scroll-section section3" data-section-title="\uCE90\uC2DC\uBC31 \uD61C\uD0DD \uBC1B\uAE30">
+                <div className="scroll-section section3" data-section-title="캐시백 혜택받기">
                   <div className="tit-area">
                     <h3>MY체크카드</h3>
                     <h4>
@@ -348,7 +365,7 @@ export default function Home({ posts }) {
                   </div>
                 </div>
                 { }
-                <div className="scroll-section section4" data-section-title="\uC624\uB298 \uAE30\uBD84 \uB0A8\uAE30\uAE30">
+                <div className="scroll-section section4" data-section-title="오늘 기분 남기기">
                   <div className="tit-area">
                     <h3>기분통장</h3>
                     <h4>
@@ -393,7 +410,7 @@ export default function Home({ posts }) {
                     </div>
                   </div>
                 </div>
-                <div className="scroll-section section5" data-section-title="\uAFC0\uC815\uBCF4 \uBC1B\uC544\uBCF4\uAE30">
+                <div className="scroll-section section5" data-section-title="꿀정보 받아보기">
                   <div className="tit-area">
                     <h3>머니톡</h3>
                     <h4>
@@ -495,7 +512,7 @@ export default function Home({ posts }) {
                   </div>
                 </div>
                 { }
-                <div className="scroll-section section6" data-section-title="\uB354 \uB9CE\uC740 \uD61C\uD0DD \uBCF4\uAE30">
+                <div className="scroll-section section6" data-section-title="더 많은 혜택보기">
                   <div className="tit-area">
                     <h4>
                       요즘 <span>HOT</span>한 혜택
@@ -592,7 +609,7 @@ export default function Home({ posts }) {
                   </div>
                 </div>
                 { }
-                <div className="scroll-section section7">
+                <div className="scroll-section section7" data-section-title="케이뱅크 시작하기">
                   <div className="full-area">
                     <div className="video-area">
                       <video muted autoplay playsinline preload>
@@ -622,8 +639,7 @@ export default function Home({ posts }) {
                   </div>
                 </div>
               </div>
-              { }
-              { }
+
               <div className="btn-fix-group active">
                 <i className="ico-arrow-down" />
                 <button className="btn-list" type="button">
@@ -640,9 +656,8 @@ export default function Home({ posts }) {
           </div>
         </div>
       </div>
-      { }
-      { }
-      {/* <div id="footer" className="bgGray">
+
+      <div id="footer" className="bgGray">
         <div className="footer-renew">
           <h3>고객센터</h3>
           <div className="cs-center">
@@ -653,22 +668,22 @@ export default function Home({ posts }) {
             </ul>
             <ul>
               <li>
-                <a href="#" title="\uC790\uC138\uD788 \uBCF4\uAE30" className="underline">
+                <a href="#" title="개인정보처리방침" className="underline">
                   개인정보처리방침
                 </a>
               </li>
               <li className="mb5">
-                <a href="#" title="\uC790\uC138\uD788 \uBCF4\uAE30" className="underline">
+                <a href="#" title="신용정보활용체제" className="underline">
                   신용정보활용체제
                 </a>
               </li>
               <li>
-                <a href="#" title="\uC790\uC138\uD788 \uBCF4\uAE30">
+                <a href="#" title="경영공시">
                   경영공시
                 </a>
               </li>
               <li>
-                <a href="#" title="\uC790\uC138\uD788 \uBCF4\uAE30">
+                <a href="#" title="전자민원접수">
                   전자민원접수
                 </a>
               </li>
@@ -678,17 +693,17 @@ export default function Home({ posts }) {
             <ul>
               <li>
                 <a href="#" target="_blank" title="\uCF00\uC774\uBC45\uD06C \uD398\uC774\uC2A4\uBD81 \uC0C8\uCC3D\uC73C\uB85C \uC5F4\uAE30">
-                  <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/ic_mw_fb.svg"} alt="\uD398\uC774\uC2A4\uBD81" />
+                  <Image width={31} height={31} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/ic_mw_fb.svg"} alt="\uD398\uC774\uC2A4\uBD81" />
                 </a>
               </li>
               <li>
                 <a href="#" target="_blank" title="\uCF00\uC774\uBC45\uD06C \uBE14\uB85C\uADF8 \uC0C8\uCC3D\uC73C\uB85C \uC5F4\uAE30">
-                  <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/ic_mw_blog.svg"} alt="\uBE14\uB85C\uADF8" />
+                  <Image width={31} height={31} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/ic_mw_blog.svg"} alt="\uBE14\uB85C\uADF8" />
                 </a>
               </li>
               <li>
                 <a href="#" target="_blank" title="\uCF00\uC774\uBC45\uD06C \uC720\uD29C\uBE0C \uC0C8\uCC3D\uC73C\uB85C \uC5F4\uAE30">
-                  <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/ic_mw_youtube.svg"} alt="\uC720\uD29C\uBE0C" />
+                  <Image width={31} height={31} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/ic_mw_youtube.svg"} alt="\uC720\uD29C\uBE0C" />
                 </a>
               </li>
             </ul>
@@ -705,9 +720,10 @@ export default function Home({ posts }) {
             </div>
           </div>
         </div>
-      </div> */}
-      { }
+      </div>
+
     </div>
+
   )
 }
 
