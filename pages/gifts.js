@@ -7,13 +7,13 @@ import axios from "axios";
 import { callAction } from "./api/fetch.js";
 import useSWR from "swr";
 import fetcher from "./api/fetch.js";
-import useSWRImmutable from 'swr/immutable'
+import useSWRImmutable from "swr/immutable";
 
 const gifts = () => {
   const uri = "/ib20/act/MWBMAN0000000101A?ib20_media=MDA00003";
   let params = { pStrCscTitle: "title Test" };
   const [eventList, setEventList] = useState([]);
-  
+
   // const fetcher = () => {
   //    fetch(uri)
   //     .then((res) => res.json())
@@ -56,7 +56,7 @@ const gifts = () => {
   // };
   // console.log(nextId.current);
 
-  // //useEffect 
+  // //useEffect
   // useEffect(() => {
   //   axios.post(uri)
   //   .then(res => {
@@ -65,7 +65,7 @@ const gifts = () => {
   // },[])
 
   //useSwr
-  
+
   // const fetcher = async(uri) => {
   //   const result = await axios.get(uri);
   //   console.log(`---------fetcher ------------`);
@@ -79,29 +79,34 @@ const gifts = () => {
   //   console.log(`-----------setEventList 111111------------`+ JSON.stringify(data));
   //   if (data) setEventList(data._msg_._body_.eventListAll);
   // }, [data]);
-  
+
   if (error) {
     console.log("---errorrrrr" + JSON.stringify(error));
     return <div>Failed to load</div>;
   }
-  
-  if (isLoading) {
+
+  if (true) {
     console.log("---isLoading-----" + JSON.stringify(isLoading));
-    // return <div class="loadingio-spinner-spinner-2fyaftvso4h"><div class="ldio-ivrbut54yo"></div></div>
     return (
-  
-      <div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        loading...
+      <div class="loadingio-spinner-spinner-6wv06jxbeb7">
+        <div class="ldio-k1ij5wjzs">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     );
-  
   }
-  
+
   const router = useRouter();
   return (
     <div>
@@ -120,32 +125,34 @@ const gifts = () => {
                         <div className="benefit-list-group">
                           <ul>
                             {data?._msg_._body_.eventListAll.length !== 0 ? (
-                              data?._msg_._body_.eventListAll
-                                .map((evt) => (
-                                  evt.END_YN==="N" && <li key={evt.EVNT_ID} className="list-item">
-                                    <div className="img-figure">
-                                      <div  className="label">
-                                        <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/not/" + decodeURIComponent(evt.ICON_FILE_NM)} />
-                                      </div>
-                                    </div>
-                                    <a onClick={() => router.push(`/gift/${evt.EVNT_ID}`)} className="tap-link">
-                                      <div className="col-cont">
-                                        <div className="txt-eyebrow">{decodeURIComponent(evt.TTL_CND).replace(/\+/g, " ")}</div>
-                                        <div className="txt-ttl">
-                                          {decodeURIComponent(evt.TTL_BNFS).replace(/\+/g, " ")}
-                                          {evt.EVNT_TAG && (
-                                            <div className="tag positive">
-                                              <span className="txt">{decodeURIComponent(evt.EVNT_TAG).replace(/\+/g, " ")}</span>
-                                            </div>
-                                          )}
+                              data?._msg_._body_.eventListAll.map(
+                                (evt) =>
+                                  evt.END_YN === "N" && (
+                                    <li key={evt.EVNT_ID} className="list-item">
+                                      <div className="img-figure">
+                                        <div className="label">
+                                          <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/not/" + decodeURIComponent(evt.ICON_FILE_NM)} />
                                         </div>
                                       </div>
-                                      <div className="col-state">
-                                        <i className="ico-arrow-link" aria-hidden="true"></i>
-                                      </div>
-                                    </a>
-                                  </li>
-                                ))
+                                      <a onClick={() => router.push(`/gift/${evt.EVNT_ID}`)} className="tap-link">
+                                        <div className="col-cont">
+                                          <div className="txt-eyebrow">{decodeURIComponent(evt.TTL_CND).replace(/\+/g, " ")}</div>
+                                          <div className="txt-ttl">
+                                            {decodeURIComponent(evt.TTL_BNFS).replace(/\+/g, " ")}
+                                            {evt.EVNT_TAG && (
+                                              <div className="tag positive">
+                                                <span className="txt">{decodeURIComponent(evt.EVNT_TAG).replace(/\+/g, " ")}</span>
+                                              </div>
+                                            )}
+                                          </div>
+                                        </div>
+                                        <div className="col-state">
+                                          <i className="ico-arrow-link" aria-hidden="true"></i>
+                                        </div>
+                                      </a>
+                                    </li>
+                                  )
+                              )
                             ) : (
                               <div className="benefit-nodata-group">
                                 <dl>

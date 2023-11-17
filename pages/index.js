@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import Script from "next/script";
@@ -13,7 +13,7 @@ export default function Home({ posts }) {
     const timeout = setTimeout(() => {
       var fullScrollElement = document.querySelector('[data-role="animation-container"]');
       var options = fullScrollElement.dataset;
-      fullScrollAnimation.init(fullScrollElement, options)
+      fullScrollAnimation.init(fullScrollElement, options);
       setIsLoading(false);
     }, 1000);
 
@@ -23,12 +23,16 @@ export default function Home({ posts }) {
   return (
     // mewbMain은 asis에서 body.mwebMain 으로 돼있는데, body 안에 넣을 수 없어서 div 안에 className 으로 넣음
     <div id="mWebWrap" className="mwebMain">
-      <Script strategy="afterInteractive" src={process.env.PUBLIC_URL + "/resource/js/cmm/lib/swiper.min.js"} onLoad={() => {
-        var fullScrollElement = document.querySelector('[data-role="animation-container"]');
-        var options = fullScrollElement.dataset;
-        fullScrollAnimation.init(fullScrollElement, options);
-      }} />
-      <Script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"/>
+      <Script
+        strategy="afterInteractive"
+        src={process.env.PUBLIC_URL + "/resource/js/cmm/lib/swiper.min.js"}
+        onLoad={() => {
+          var fullScrollElement = document.querySelector('[data-role="animation-container"]');
+          var options = fullScrollElement.dataset;
+          fullScrollAnimation.init(fullScrollElement, options);
+        }}
+      />
+      <Script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" />
       <Script async src={process.env.PUBLIC_URL + "/resource/js/cmm/fullscroll.js"} />
       <Script async src={process.env.PUBLIC_URL + "/resource/js/m-ui.js"} />
 
@@ -38,15 +42,15 @@ export default function Home({ posts }) {
             <div className="content type-renewal main-new">
               <h1 className="blind">케이뱅크</h1>
               <h2 className="blind">메인페이지</h2>
-              { }
+              {}
               <div className="scroll-nav">
-                { }
+                {}
                 <ul></ul>
               </div>
-              { }
-              { }
+              {}
+              {}
               <div className="scroll-container" data-role="animation-container">
-                { }
+                {}
                 <div className="scroll-section section0" data-section-title="케이뱅크 시작하기">
                   <div className="tit-area">
                     <p className="tit">
@@ -69,7 +73,7 @@ export default function Home({ posts }) {
                         <div className="inner">
                           <div className="intro-swiper">
                             <div className="swiper-wrapper">
-                              { }
+                              {}
                               <div className="swiper-slide">
                                 <Image width={224} height={224} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img1.png"} priority={true} alt="생활통장" />
                               </div>
@@ -91,7 +95,7 @@ export default function Home({ posts }) {
                               <div className="swiper-slide">
                                 <Image width={224} height={224} src={process.env.PUBLIC_URL + "/resource/img/reform/mweb/new23/intro_img7.png"} />
                               </div>
-                              { }
+                              {}
                             </div>
                           </div>
                           <button type="button" className="btn-play">
@@ -102,8 +106,8 @@ export default function Home({ posts }) {
                     </div>
                   </div>
                 </div>
-                { }
-                { }
+                {}
+                {}
                 <div className="scroll-section section8" data-section-title="생활통장">
                   <div className="tit-area">
                     <h3>생활통장</h3>
@@ -132,7 +136,7 @@ export default function Home({ posts }) {
                     </div>
                   </div>
                 </div>
-                { }
+                {}
                 <div className="scroll-section section9" data-section-title="모임통장">
                   <div className="tit-area">
                     <h3>모임통장</h3>
@@ -166,8 +170,8 @@ export default function Home({ posts }) {
                     </div>
                   </div>
                 </div>
-                { }
-                { }
+                {}
+                {}
                 <div className="scroll-section section1" data-section-title="플러스박스">
                   <div className="tit-area">
                     <h3>파킹통장 플러스박스</h3>
@@ -195,7 +199,7 @@ export default function Home({ posts }) {
                     </div>
                   </div>
                 </div>
-                { }
+                {}
                 <div className="scroll-section section2" data-section-title="대출한도 알아보기">
                   <div className="tit-area">
                     <h3>아파트담보대출</h3>
@@ -207,19 +211,33 @@ export default function Home({ posts }) {
                     <a href="#" className="btn-more">
                       자세히보기{" "}
                     </a>
-                    qnehd
                   </div>
                   <div className="cont-area apt-area">
                     <div className="inner-area">
                       <div className="apt-box">
-                        <div className="apt-img apt1" />
-                        <div className="apt-img apt2" />
-                        <div className="apt-img apt3" />
+                        <div
+                          className="apt-img apt1"
+                          style={{
+                            backgroundImage: 'url("/resource/img/reform/mweb/new23/ic_apt1.png")',
+                          }}
+                        />
+                        <div
+                          className="apt-img apt2"
+                          style={{
+                            backgroundImage: 'url("/resource/img/reform/mweb/new23/ic_apt2.png")',
+                          }}
+                        />
+                        <div
+                          className="apt-img apt3"
+                          style={{
+                            backgroundImage: 'url("/resource/img/reform/mweb/new23/ic_apt3.png")',
+                          }}
+                        />
                       </div>
                     </div>
                   </div>
                 </div>
-                { }
+                {}
                 <div className="scroll-section section3" data-section-title="캐시백 혜택받기">
                   <div className="tit-area">
                     <h3>MY체크카드</h3>
@@ -237,7 +255,7 @@ export default function Home({ posts }) {
                   </div>
                   <div className="cont-area">
                     <div className="inner-area">
-                      { }
+                      {}
                       <div className="logo-swiper" dir="ltr">
                         <div className="swiper-wrapper">
                           <div className="swiper-slide">
@@ -351,7 +369,7 @@ export default function Home({ posts }) {
                           </div>
                         </div>
                       </div>
-                      { }
+                      {}
                       <div className="card-area">
                         <div className="card-bnr">
                           <div className="flip">
@@ -364,11 +382,11 @@ export default function Home({ posts }) {
                           </div>
                         </div>
                       </div>
-                      { }
+                      {}
                     </div>
                   </div>
                 </div>
-                { }
+                {}
                 <div className="scroll-section section4" data-section-title="오늘 기분 남기기">
                   <div className="tit-area">
                     <h3>기분통장</h3>
@@ -515,7 +533,7 @@ export default function Home({ posts }) {
                     </div>
                   </div>
                 </div>
-                { }
+                {}
                 <div className="scroll-section section6" data-section-title="더 많은 혜택보기">
                   <div className="tit-area">
                     <h4>
@@ -612,7 +630,7 @@ export default function Home({ posts }) {
                     </div>
                   </div>
                 </div>
-                { }
+                {}
                 <div className="scroll-section section7" data-section-title="케이뱅크 시작하기">
                   <div className="full-area">
                     <div className="video-area">
@@ -633,7 +651,7 @@ export default function Home({ posts }) {
                         <i className="play-party" />
                       </h3>
                       <p className="txt">이제 혜택받으러 갈까요?</p>
-                      { } { }
+                      {} {}
                     </div>
                     <div className="btn-group">
                       <button className="btn-go" type="button">
@@ -650,13 +668,13 @@ export default function Home({ posts }) {
                   <ul></ul>
                 </button>
               </div>
-              { }
+              {}
               <a href="#" className="fix-top" title="\uB9E8 \uC704\uB85C \uC774\uB3D9">
                 TOP
               </a>
-              { }
+              {}
             </div>
-            { }
+            {}
           </div>
         </div>
       </div>
@@ -720,15 +738,13 @@ export default function Home({ posts }) {
               >
                 2023.07.25 준법감시인 심의필 2023-990 (유효기간 : 2023.12.31)
               </p>
-              { }
+              {}
             </div>
           </div>
         </div>
       </div>
-
     </div>
-
-  )
+  );
 }
 
 // export const getServerSideProps = async () => {
