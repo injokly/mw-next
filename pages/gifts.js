@@ -125,7 +125,7 @@ const gifts = () => {
                         <div className="benefit-list-group">
                           <ul>
                             {data?._msg_._body_.eventListAll.length !== 0 ? (
-                              data?._msg_._body_.eventListAll.map(
+                              data._msg_._body_.eventListAll.map(
                                 (evt) =>
                                   evt.END_YN === "N" && (
                                     <li key={evt.EVNT_ID} className="list-item">

@@ -7,6 +7,13 @@ import { unmountComponentAtNode } from 'react-dom';
 import { cntntState } from "@/recoil/cntnt";
 import { useRecoilState } from "recoil";
 
+//dynamic routing id 값을 유지하기 위함 
+export async function getServerSideProps(context) {
+  return {
+      props: {},
+  };
+}
+
 const Detail = () => {
   const router = useRouter();
   console.log(router);
@@ -31,6 +38,7 @@ const Detail = () => {
   //   }, [eventList]);
 
   const [cntnt, setCntntState] = useRecoilState(cntntState);
+  const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     // const headers = {
@@ -46,7 +54,8 @@ const Detail = () => {
       setCntntState(pCntnt);
     });
   };
-  //const { data, isLoading, error } = useQuery(queryKey, queryFn, options)
+
+  //사용법 : const { data, isLoading, error } = useQuery(queryKey, queryFn, options)
   const { data, isLoading } = useQuery("cntnt", fetchData, {
     onError: (error) => {
       console.error("request failed : ", error);
@@ -66,11 +75,25 @@ const Detail = () => {
     }, [])
     return { __html: cntnt }
   }
+  
+
+  // const useLoading = (action) => {
+  //   const [isLoading, setIsLoading] = useState(false);
+  
+  //   const handleData = async (...args) => {
+  //     setIsLoading(true);
+  //     return await action(...args).thfinally(() => setIsLoading(false));
+  //   };
+  
+  //   return [isLoading, handleData];
+  // };
+  // const [isLoading, createTodoLists] = useLoading(fetchData);
+
+
   return (
     <div>
       <HeadInfo></HeadInfo>
-      <div id="danger" dangerouslySetInnerHTML={createMarkup()}></div>
-      <div>Post : {id}</div>
+   <div id="danger" dangerouslySetInnerHTML={createMarkup()}></div>
     </div >
   );
 };
