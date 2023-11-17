@@ -1,4 +1,11 @@
 import axios from 'axios'
+
+const fetcher = async(uri) => {
+    const result = await axios.get(uri);
+    return result.data;
+};
+
+export default fetcher;
 //1. HTTP Request & Response 관련된 기본 설정 
 // let params = { 'pStrCscTitle': 'title Test' };
 // export const callAction = axios.post(`/ib20/act/MWBMAN0000000101A?ib20_media=MDA00003`, params)

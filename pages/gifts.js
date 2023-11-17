@@ -6,6 +6,7 @@ import { useRouter } from "next/router.js";
 import axios from "axios";
 import { callAction } from "./api/fetch.js";
 import useSWR from "swr";
+import fetcher from "./api/fetch.js";
 import useSWRImmutable from 'swr/immutable'
 
 const gifts = () => {
@@ -65,25 +66,27 @@ const gifts = () => {
 
   //useSwr
   
-  const fetcher = async(uri) => {
-    const result = await axios.get(uri);
-    console.log(`---------fetcher ------------`);
-    return result.data;
-  };
+  // const fetcher = async(uri) => {
+  //   const result = await axios.get(uri);
+  //   console.log(`---------fetcher ------------`);
+  //   return result.data;
+  // };
   //const fetcher = url => axios.get(uri).then(res => res.data)
   const { data, error, isLoading } = useSWR(uri, fetcher);
   console.log(`----------- under useSWR ------------` + JSON.stringify(data));
-  useEffect(() => {
-    console.log(`-----------setEventList ------------`);
-    if (data) setEventList(data._msg_._body_.eventListAll);
-  }, [data]);
+  // useEffect(() => {
+  //   console.log(`-----------setEventList ------------`);
+  //   console.log(`-----------setEventList 111111------------`+ JSON.stringify(data));
+  //   if (data) setEventList(data._msg_._body_.eventListAll);
+  // }, [data]);
   
   if (error) {
-    console.log("---" + JSON.stringify(error));
+    console.log("---errorrrrr" + JSON.stringify(error));
     return <div>Failed to load</div>;
   }
   
   if (isLoading) {
+    console.log("---isLoading-----" + JSON.stringify(isLoading));
     // return <div class="loadingio-spinner-spinner-2fyaftvso4h"><div class="ldio-ivrbut54yo"></div></div>
     return (
   
@@ -116,8 +119,8 @@ const gifts = () => {
                       <div className="tab-content">
                         <div className="benefit-list-group">
                           <ul>
-                            {eventList.length !== 0 ? (
-                              eventList
+                            {data?._msg_._body_.eventListAll.length !== 0 ? (
+                              data?._msg_._body_.eventListAll
                                 .map((evt) => (
                                   evt.END_YN==="N" && <li key={evt.EVNT_ID} className="list-item">
                                     <div className="img-figure">
