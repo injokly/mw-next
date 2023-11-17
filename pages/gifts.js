@@ -65,12 +65,12 @@ const gifts = () => {
 
   //useSwr
   
-  // const fetcher = async(uri) => {
-  //   const result = await axios.get(uri);
-  //   console.log(`---------fetcher ------------`);
-  //   return result.data;
-  // };
-  const fetcher = url => axios.get(uri).then(res => res.data)
+  const fetcher = async(uri) => {
+    const result = await axios.get(uri);
+    console.log(`---------fetcher ------------`);
+    return result.data;
+  };
+  //const fetcher = url => axios.get(uri).then(res => res.data)
   const { data, error, isLoading } = useSWR(uri, fetcher);
   console.log(`----------- under useSWR ------------` + JSON.stringify(data));
   useEffect(() => {
