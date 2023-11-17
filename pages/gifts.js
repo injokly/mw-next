@@ -85,7 +85,7 @@ const gifts = () => {
     return <div>Failed to load</div>;
   }
 
-  if (true) {
+  if (isLoading) {
     console.log("---isLoading-----" + JSON.stringify(isLoading));
     return (
       <div class="loadingio-spinner-spinner-6wv06jxbeb7">
