@@ -5,20 +5,20 @@ import Image from "next/image";
 import { useRouter } from "next/router.js";
 import axios from "axios";
 import { callAction } from "./api/fetch.js";
-import useSWR from 'swr'
-
+import useSWR from "swr";
+import useSWRImmutable from 'swr/immutable'
 
 const gifts = () => {
   const uri = "/ib20/act/MWBMAN0000000101A?ib20_media=MDA00003";
   let params = { pStrCscTitle: "title Test" };
   const [eventList, setEventList] = useState([]);
-  const fetcher = () => fetch(uri)
-  .then((res) => res.json())
-  .then((data) => {
-    console.log(`useSwr data` + JSON.stringify(data._msg_._body_.eventListAll));
-    setEventList(data._msg_._body_.eventListAll);
-    console.log(eventList);
-  })
+  
+  // const fetcher = () => {
+  //    fetch(uri)
+  //     .then((res) => res.json())
+  // };
+  //data._msg_._body_.eventListAll;
+
   // useEffect(() => {
   // axios.post(`${uri}`, params)
   // .then(res => {
@@ -32,7 +32,6 @@ const gifts = () => {
   //   setData({'main':'sodfijsidfjas'})
   // })
 
-
   // fetch(`/datas/gifts.json`)
   //   .then((res) => res.json())
   //   .then((data) => {
@@ -44,22 +43,62 @@ const gifts = () => {
   //   });
   // }, []);
 
-  const nameInput = useRef(3);
-  const onClick = () => {
-    console.log("clicked " + nameInput + Object.values(nameInput.current));
+  // const nameInput = useRef(3);
+  // const onClick = () => {
+  //   console.log("clicked " + nameInput + Object.values(nameInput.current));
 
-    nameInput.current;
-  };
-  const nextId = useRef(4);
-  const onCreate = () => {
-    nextId.current += 1;
-  };
-  console.log(nextId.current);
-    
-  const { data, error, isLoading } = useSWR(uri, fetcher)
-  if (error) return <div>Failed to load</div>
-  if (isLoading) return <div class="loadingio-spinner-spinner-2fyaftvso4h"><div class="ldio-ivrbut54yo"></div></div>
+  //   nameInput.current;
+  // };
+  // const nextId = useRef(4);
+  // const onCreate = () => {
+  //   nextId.current += 1;
+  // };
+  // console.log(nextId.current);
 
+  // //useEffect 
+  // useEffect(() => {
+  //   axios.post(uri)
+  //   .then(res => {
+  //     console.log(`=======loging` + JSON.stringify(res.data._msg_._body_));
+  //     setEventList(res.data._msg_._body_.eventListAll)})
+  // },[])
+
+  //useSwr
+  
+  // const fetcher = async(uri) => {
+  //   const result = await axios.get(uri);
+  //   console.log(`---------fetcher ------------`);
+  //   return result.data;
+  // };
+  const fetcher = url => axios.get(uri).then(res => res.data)
+  const { data, error, isLoading } = useSWR(uri, fetcher);
+  console.log(`----------- under useSWR ------------` + JSON.stringify(data));
+  useEffect(() => {
+    console.log(`-----------setEventList ------------`);
+    if (data) setEventList(data._msg_._body_.eventListAll);
+  }, [data]);
+  
+  if (error) {
+    console.log("---" + JSON.stringify(error));
+    return <div>Failed to load</div>;
+  }
+  
+  if (isLoading) {
+    // return <div class="loadingio-spinner-spinner-2fyaftvso4h"><div class="ldio-ivrbut54yo"></div></div>
+    return (
+  
+      <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        loading...
+      </div>
+    );
+  
+  }
+  
   const router = useRouter();
   return (
     <div>
@@ -77,39 +116,41 @@ const gifts = () => {
                       <div className="tab-content">
                         <div className="benefit-list-group">
                           <ul>
-                            {eventList.length !== 0 ? eventList
-                            .filter((evt)=>evt.END_YN==='N')
-                            .map((evt) => (
-                              <li key={evt.EVNT_ID} className="list-item">
-                                <div className="img-figure">
-                                  <div ref={nameInput} className="label">
-                                    <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/not/" + decodeURIComponent(evt.ICON_FILE_NM)} />
-                                  </div>
-                                </div>
-                                <a onClick={() => router.push(`/gift/${evt.EVNT_ID}`)} className="tap-link">
-                                  <div className="col-cont">
-                                    <div className="txt-eyebrow">{decodeURIComponent(evt.TTL_CND).replace(/\+/g, " ")}</div>
-                                    <div className="txt-ttl">
-                                      {decodeURIComponent(evt.TTL_BNFS).replace(/\+/g, " ")}
-                                      {evt.EVNT_TAG && <div className="tag positive">
-                                        <span className="txt">{decodeURIComponent(evt.EVNT_TAG).replace(/\+/g, " ")}</span>
+                            {eventList.length !== 0 ? (
+                              eventList
+                                .map((evt) => (
+                                  evt.END_YN==="N" && <li key={evt.EVNT_ID} className="list-item">
+                                    <div className="img-figure">
+                                      <div  className="label">
+                                        <Image width={300} height={300} src={process.env.PUBLIC_URL + "/resource/img/not/" + decodeURIComponent(evt.ICON_FILE_NM)} />
                                       </div>
-                                      }
                                     </div>
-                                  </div>
-                                  <div className="col-state">
-                                    <i className="ico-arrow-link" aria-hidden="true"></i>
-                                  </div>
-                                </a>
-                              </li>
-                            )) :
+                                    <a onClick={() => router.push(`/gift/${evt.EVNT_ID}`)} className="tap-link">
+                                      <div className="col-cont">
+                                        <div className="txt-eyebrow">{decodeURIComponent(evt.TTL_CND).replace(/\+/g, " ")}</div>
+                                        <div className="txt-ttl">
+                                          {decodeURIComponent(evt.TTL_BNFS).replace(/\+/g, " ")}
+                                          {evt.EVNT_TAG && (
+                                            <div className="tag positive">
+                                              <span className="txt">{decodeURIComponent(evt.EVNT_TAG).replace(/\+/g, " ")}</span>
+                                            </div>
+                                          )}
+                                        </div>
+                                      </div>
+                                      <div className="col-state">
+                                        <i className="ico-arrow-link" aria-hidden="true"></i>
+                                      </div>
+                                    </a>
+                                  </li>
+                                ))
+                            ) : (
                               <div className="benefit-nodata-group">
                                 <dl>
                                   <dt className="tit">아직 관심혜택이 없어요</dt>
                                   <dd className="txt">혜택별 ♡버튼을 눌러서 나만의 관심혜택으로 추가해보세요</dd>
                                 </dl>
                               </div>
-                            }
+                            )}
                           </ul>
                         </div>
                       </div>

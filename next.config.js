@@ -29,23 +29,23 @@ const nextConfig = {
       ]
     }
   },
-  async headers() {
-    return [
-      {
-        source: '/about',
-        headers: [
-          {
-            key: 'x-custom-header',
-            value: 'my custom header value',
-          },
-          {
-            key: 'User-Agent',
-            value: 'Google Chrome',
-          },
-        ],
-      },
-    ]
-  },
+  // async headers() {
+  //   return [
+  //     {
+  //       source: '/about',
+  //       headers: [
+  //         {
+  //           key: 'x-custom-header',
+  //           value: 'my custom header value',
+  //         },
+  //         {
+  //           key: 'User-Agent',
+  //           value: 'Google Chrome',
+  //         },
+  //       ],
+  //     },
+  //   ]
+  // },
 }
 
 module.exports = nextConfig;

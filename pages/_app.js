@@ -16,13 +16,13 @@ export default function App({ Component, pageProps }) {
 
   return (
     <RecoilRoot>
-      <React.StrictMode>
+      {/* <React.StrictMode> */}
         <QueryClientProvider client={queryClient}>
           <Layout>
             <Component {...pageProps} />
           </Layout>         
         </QueryClientProvider>
-      </React.StrictMode>
+      {/* </React.StrictMode> */}
     </RecoilRoot>
 
   );
