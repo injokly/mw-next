@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import axios from "axios";
 const GiftDetail = (props) => {
   const [data, setData] = useState("");
@@ -22,7 +22,11 @@ const GiftDetail = (props) => {
   // 데이터를 가공하여 표시
   const formattedData = manipulateData(data);
 
-  return <div>{formattedData}</div>;
+  return <>
+  <Suspense fallback={`<h4>loading...</h4>`}>
+    <div>{formattedData}</div>
+    </Suspense>
+  </>;
 };
 
 // 데이터를 가공하는 함수

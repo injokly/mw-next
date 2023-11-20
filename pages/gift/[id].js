@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect, Suspense } from "react";
 import HeadInfo from "@/components/HeadInfo";
 import { useRouter } from "next/router";
 import axios from "axios";
@@ -90,9 +90,12 @@ const Detail = () => {
 
   return (
     <div>
+        {/* <Suspense fallback={`<h4>loading...</h4>`}> */}
+
       <HeadInfo></HeadInfo>
       <GiftDetail id={id}></GiftDetail>
       {/* <div id="danger" dangerouslySetInnerHTML={createMarkup()}></div> */}
+      {/* </Suspense> */}
     </div>
   );
 };
