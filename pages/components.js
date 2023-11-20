@@ -13,10 +13,18 @@ const components = () => {
 
   const [selected, change] = useState();
   const triggerElement = <p>드롭다운 선택한 값 : {selected}</p>;
+  // const triggerElement2 = <BottomPrivatePrivacy param={selected} />;
 
 
-  const [checkSelected, checkSelectedChange] = useState();
-  const checkboxTrigger = <p>체크박스 선택한 값 : {checkSelected}</p>;
+  const [selectedValues, setSelectedValues] = useState([]);
+  const handleCheckboxChange = (value) => {
+    if (selectedValues.includes(value)) {
+      setSelectedValues(selectedValues.filter((v) => v !== value));
+    } else {
+      setSelectedValues([...selectedValues, value]);
+    }
+  };
+  const checkboxTrigger = <p>체크박스 선택한 값 : {selectedValues}</p>;
 
   return (
     <div>
@@ -31,8 +39,14 @@ const components = () => {
 
       <br/>
       <br/>
+      <h1>Select Dropdown2</h1>
+      <Select trigger={<>qqq{selected}qqq</>} value={selected} onChange={change} options={options} />
+
+
+      <br/>
+      <br/>
       <h1>Checkbox</h1>
-      <Checkbox trigger={checkboxTrigger} value={checkSelected} onChange={checkSelectedChange} options={options} />
+      <Checkbox trigger={checkboxTrigger} value={selectedValues} onChange={handleCheckboxChange} options={options} />
 
     </div>
   );
