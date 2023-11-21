@@ -18,14 +18,9 @@ const Nav = () => {
             <div className="mweb-main-gnb">
               <ul>
                 <li>
-                  <Link href="/components">
-                    Comp
+                  <Link href="/test" className={router.pathname == "/test" ? "on" : ""}>
+                    TEST
                   </Link>
-                </li>
-                <li>
-                  <a href="https://m.kbanknow.com/ib20/mnu/MWBMAN020000" className="tap-link">
-                    기존 앱
-                  </a>
                 </li>
                 <li>
                   <Link href="/products" className={router.pathname == "/products" ? "on" : ""}>

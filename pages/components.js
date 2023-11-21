@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import List from "@/components/List";
 import Select from "@/components/Select";
 import Checkbox from "@/components/Checkbox";
+import Test from "@/components/Test";
 
 const components = () => {
 
@@ -33,6 +34,7 @@ const components = () => {
       <h1>컴포넌트 모듈</h1>
       <br/>
       <br/>
+      <Test as="ul"><li>asdf</li><li>qwer</li></Test>
 
       <h1>Select Dropdown</h1>
       <Select trigger={triggerElement} value={selected} onChange={change} options={options} />

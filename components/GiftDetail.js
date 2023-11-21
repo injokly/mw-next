@@ -23,9 +23,7 @@ const GiftDetail = (props) => {
   const formattedData = manipulateData(data);
 
   return <>
-  <Suspense fallback={`<h4>loading...</h4>`}>
     <div>{formattedData}</div>
-    </Suspense>
   </>;
 };
 
