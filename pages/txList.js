@@ -29,7 +29,7 @@ const txListPage = () => {
       if (items.length >= 100) {
         setHasMore(false);
       }
-    }, 100);
+    }, 1000);
   };
 
   useEffect(() => {
