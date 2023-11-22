@@ -5,6 +5,7 @@ import "@/styles/m_web.css";
 import "@/styles/swiper.min.css";
 import "@/styles/font.css";
 import "@/styles/Card.css";
+import "@/styles/Modal.css";
 
 import Layout from "@/components/Layout";
 import { RecoilRoot } from "recoil";

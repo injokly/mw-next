@@ -13,24 +13,16 @@ import React, {
   
   const Card = ({ children }) => {
     const [isCollapsed, setIsCollapsed] = useState(true);
-    const [isOpen, setIsOpen] = useState(false);
-  
+
     const expand = () => {
       setIsCollapsed(!isCollapsed);
     };
   
     const collapse = () => {
       setIsCollapsed(!isCollapsed);
-
     };
 
-    const detail = () => {
-      setIsOpen(!isOpen);
-      console.log(`detail called`)
-      alert('are you sure?');
-    };
-
-    const value = { isCollapsed, isOpen, expand, collapse, detail };
+    const value = { isCollapsed, expand, collapse };
     return (
       <CardContext.Provider value={value}>
         <div className="list-deal-group">{children}</div>
@@ -39,7 +31,22 @@ import React, {
   };
   
   const CardContent = ({ children }) => { 
-    const { isCollapsed } = useContext(CardContext);
+    const { isCollapsed, expand } = useContext(CardContext);
+    useEffect(() => {
+      const handleScroll = () => {
+        // 스크롤 이벤트 핸들링
+        expand();
+        console.log('스크롤 중!');
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      // 컴포넌트가 언마운트되면 이벤트 리스너 제거
+      return () => {
+        console.log('스크롤 중!');
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []); // 빈 배열은 컴포넌트가 처음 마운트될 때만 실행되도록 합니다.
     return children.map((child, index) => {
       if (isCollapsed) {
         while (LIMIT > index) {
@@ -63,15 +70,8 @@ import React, {
     return !isCollapsed && cloneElement(children, { onClick: collapse });
   };
 
-  const Detail = ({children}) => {
-    const { detail, isOpen } = useContext(CardContext);
-    return !isOpen && cloneElement(children, { onClick: detail });
-  }
-  
   Card.CardContent = CardContent;
   Card.Expand = Expand;
   Card.Collapse = Collapse;
-  Card.Detail = Detail;
   
   export default Card;
-  

@@ -1,18 +1,27 @@
 import React from "react";
+const CardItem = ({ item, onClick }) => {
 
-const CardItem = ({ item }) => {
+  //날짜 포맷팅 (20231101 -> 11.01)
+  const toDateMd = (dateStr, gubun) => {
+    const re = /(\d{2})(\d{2})/;
+    const replace = "$1" + gubun + "$2";
+    var dateStrNoDash = dateStr.substring(4, 8).replace(/[^\d]/g, "");
+    return dateStrNoDash.replace(re, replace);
+  };
+
   return (
-    <div className="list-item">
+    <div className="list-item" data-pk={item.txAfBal} onClick={onClick}>
       <button type="button" className="section-tap">
         <div className="row-head">
           <div className="area-date">
-            <span className="txt-date">11.21</span> <span className="txt-time">16:29</span>
+            <span className="txt-date">{toDateMd(item.txDt, ".")}</span>
+            <span className="txt-time">{toDateMd(item.txHms, ":")}</span>
           </div>
         </div>
         <div className="row-tit">
           <span className="txt-detail">{item.memo}</span>
           <span className="txt-amount secondary1-1">
-            <strong>{item.txAfBal}</strong> <strong>원</strong>
+            <strong>{Number(item.txAmt)}</strong> <strong>원</strong>
           </span>
         </div>
         <div className="row-state">
@@ -20,7 +29,7 @@ const CardItem = ({ item }) => {
             <span className="txt"></span>
           </span>
           <span className="txt-sum">
-            잔액<em>1,554,025</em> <strong>원</strong>
+            잔액<em>{Number(item.txAfBal)}</em> <strong>원</strong>
           </span>
         </div>
       </button>

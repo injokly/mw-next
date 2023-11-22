@@ -1533,7 +1533,7 @@ animation-delay: 2.1s;}
 #dim.btnAppDownloadAtive .btnFixed.btnTop{bottom:80px;}
 /* END : SR-1733 */
 
-#header.is-fix{position:fixed !important;top:0;left:0;width:100%;z-index:501 !important;} /* FETASK-371 20230117 異붽� */
+#header.is-fix{position:fixed ;top:0;left:0;width:100%;z-index:501;} /* FETASK-371 20230117 異붽� */
 #header.is-fix .header-wrap{background-color: #fff;} /* FETASK-371 20230117 異붽� */
 
 

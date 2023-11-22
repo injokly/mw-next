@@ -650,7 +650,7 @@ body{background-color:#f8f8f8;color:#141414;font-size:1.6rem;font-family:'Preten
 
 /* s: FETASK-371 2023-01-17 �곹뭹�� 由щ돱��(�좎냼��) */
 .type-renewal .main-tab-container *{line-height: inherit;}
-#header.is-fix{position:fixed !important;top:0;left:0;width:100%;z-index:501 !important;}
+#header.is-fix{position:fixed !important;top:0;left:0;width:100%;z-index:501 ;}
 #header.is-fix .header-wrap .header{background-color:#fff;}
 
 /* �곹뭹 �� */

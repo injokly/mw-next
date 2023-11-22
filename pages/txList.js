@@ -1,29 +1,43 @@
 import Card from "@/components/Card/Card";
 import CardItem from "@/components/Card/CardItem";
-import content from "@/public/datas/content";
+import Modal from "@/components/Modal/Modal";
+import dtlList from "@/public/datas/dtlList";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
-const txList = () => {
+const txListPage = () => {
+  const router = useRouter();
+
+  const [isOpen, setIsOpen] = useState(true);
+  const [detailItem, setDetailItem] = useState([]);
+  const onClickCardItem = (item) => {
+    console.log(`onclickCardItem called `+item +` ` + isOpen);
+    setDetailItem(item);
+    setIsOpen(!isOpen);
+    // router.push("/detail?pk=" + e.target.dataset.pk);
+  };
+
   return (
-    <div style={{
-        paddingTop: "40px",
-      }}>
+    // 상단 헤더 크기만큼 컨텐츠를 내려줌.
+    <div style={{ paddingTop: "40px" }}>
       <Card>
         <Card.CardContent>
-          {content.map((item, index) => {
-            return <Card.Detail><CardItem key={index} item={item} /></Card.Detail>;
+          {dtlList.map((item, index) => {
+            return <CardItem onClick={()=>onClickCardItem(item)} key={index} item={item} />;
           })}
         </Card.CardContent>
-
-        <Card.Expand>
-          <div>show more</div>
-        </Card.Expand>
-
-        <Card.Collapse>
-          <div>show less</div>
-        </Card.Collapse>
       </Card>
+
+      {!isOpen && (
+        <Modal item={detailItem} onClick={(data) => {setIsOpen(data);}}>
+          <Modal.Header>
+            <Modal.Close />
+          </Modal.Header>
+          <Modal.Content></Modal.Content>
+        </Modal>
+      )}
     </div>
   );
 };
 
-export default txList;
+export default txListPage;
