@@ -7,7 +7,7 @@ import React, {
   } from "react";
 
 
-  const LIMIT = 3;
+  const LIMIT = 10;
   
   const CardContext = createContext();
   
@@ -32,21 +32,23 @@ import React, {
   
   const CardContent = ({ children }) => { 
     const { isCollapsed, expand } = useContext(CardContext);
-    useEffect(() => {
-      const handleScroll = () => {
-        // 스크롤 이벤트 핸들링
-        expand();
-        console.log('스크롤 중!');
-      };
+    // useEffect(() => {
+    //   const handleScroll = () => {
+    //     // 스크롤 이벤트 핸들링
+    //     expand();
+    //     console.log('스크롤 중!');
+    //   };
   
-      window.addEventListener('scroll', handleScroll);
+    //   window.addEventListener('scroll', handleScroll);
   
-      // 컴포넌트가 언마운트되면 이벤트 리스너 제거
-      return () => {
-        console.log('스크롤 중!');
-        window.removeEventListener('scroll', handleScroll);
-      };
-    }, []); // 빈 배열은 컴포넌트가 처음 마운트될 때만 실행되도록 합니다.
+    //   // 컴포넌트가 언마운트되면 이벤트 리스너 제거
+    //   return () => {
+    //     console.log('스크롤 해제');
+    //     window.removeEventListener('scroll', handleScroll);
+    //   };
+    // }, []); // 빈 배열은 컴포넌트가 처음 마운트될 때만 실행되도록 합니다.
+
+
     return children.map((child, index) => {
       if (isCollapsed) {
         while (LIMIT > index) {

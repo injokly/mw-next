@@ -3,15 +3,41 @@ import CardItem from "@/components/Card/CardItem";
 import Modal from "@/components/Modal/Modal";
 import dtlList from "@/public/datas/dtlList";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const txListPage = () => {
   const router = useRouter();
 
   const [isOpen, setIsOpen] = useState(true);
   const [detailItem, setDetailItem] = useState([]);
+
+
+
+  const [items, setItems] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
+  const fetchMoreData = () => {
+    // 여기서 추가 데이터를 가져오는 비동기 작업을 수행합니다.
+    // 이 예제에서는 간단하게 더미 데이터를 추가합니다.
+    setTimeout(() => {
+      const newItems = dtlList.slice(0,10);
+      console.log(`newItems ` + newItems);
+      setItems([...items, ...newItems]);
+
+      console.log(`items.length ` + items);
+      // 만약 가져올 데이터가 더 없다면 hasMore를 false로 설정합니다.
+      if (items.length >= 100) {
+        setHasMore(false);
+      }
+    }, 100);
+  };
+
+  useEffect(() => {
+    setItems(dtlList.slice(0,10));
+  }, []);
+
   const onClickCardItem = (item) => {
-    console.log(`onclickCardItem called `+item +` ` + isOpen);
+    console.log(`onclickCardItem called ` + item + ` ` + isOpen);
     setDetailItem(item);
     setIsOpen(!isOpen);
     // router.push("/detail?pk=" + e.target.dataset.pk);
@@ -21,15 +47,22 @@ const txListPage = () => {
     // 상단 헤더 크기만큼 컨텐츠를 내려줌.
     <div style={{ paddingTop: "40px" }}>
       <Card>
-        <Card.CardContent>
-          {dtlList.map((item, index) => {
-            return <CardItem onClick={()=>onClickCardItem(item)} key={index} item={item} />;
-          })}
-        </Card.CardContent>
+        <InfiniteScroll dataLength={items.length} next={fetchMoreData} hasMore={hasMore} loader={<h4>Loading...</h4>}>
+          {/* <Card.CardContent> */}
+            {items.map((item, index) => {
+              return <CardItem onClick={() => onClickCardItem(item)} key={index} item={item} />;
+            })}
+          {/* </Card.CardContent> */}
+        </InfiniteScroll>
       </Card>
 
       {!isOpen && (
-        <Modal item={detailItem} onClick={(data) => {setIsOpen(data);}}>
+        <Modal
+          item={detailItem}
+          onClick={(data) => {
+            setIsOpen(data);
+          }}
+        >
           <Modal.Header>
             <Modal.Close />
           </Modal.Header>

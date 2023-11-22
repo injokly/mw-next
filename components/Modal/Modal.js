@@ -54,25 +54,25 @@ const Content = ({ children }) => {
               <li className="list-item">
                 <dl className="item-box">
                   <dt className="area-term">거래일시</dt>
-                  <dd className="area-desc">2023.11.22 09:14</dd>
+                  <dd className="area-desc">{item.txDt} {item.txHms}</dd>
                 </dl>
               </li>
               <li className="list-item">
                 <dl className="item-box">
                   <dt className="area-term">거래구분</dt>
-                  <dd className="area-desc">케이뱅크 이벤트</dd>
+                  <dd className="area-desc">{item.whdrwlPsbkCntnt}</dd>
                 </dl>
               </li>
               <li className="list-item">
                 <dl className="item-box">
                   <dt className="area-term">거래금액</dt>
-                  <dd className="area-desc">+7원</dd>
+                  <dd className="area-desc">{Number(item.txAmt)}원</dd>
                 </dl>
               </li>
               <li className="list-item">
                 <dl className="item-box">
                   <dt className="area-term">계좌잔액</dt>
-                  <dd className="area-desc">1,554,032원</dd>
+                  <dd className="area-desc">{Number(item.txAfBal)}원</dd>
                 </dl>
               </li>
             </ul>
