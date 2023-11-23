@@ -6,6 +6,14 @@ import "@/styles/swiper.min.css";
 import "@/styles/font.css";
 import "@/styles/Card.css";
 import "@/styles/Modal.css";
+import "@/styles/styleguide.css";
+import "@/styles/Account.css"
+import "@/styles/Content.css"
+import "@/styles/Ctrl.css"
+import "@/styles/Info.css"
+import "@/styles/Solid.css"
+import "@/styles/Txt.css"
+import "@/styles/TagBackgroundDark.css"
 
 import Layout from "@/components/Layout";
 import { RecoilRoot } from "recoil";

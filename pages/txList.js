@@ -1,7 +1,9 @@
+import { Account } from "@/components/Account";
 import Card from "@/components/Card/Card";
 import CardItem from "@/components/Card/CardItem";
 import Modal from "@/components/Modal/Modal";
 import dtlList from "@/public/datas/dtlList";
+import acctDetailJson from"@/public/datas/acctDetail";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -11,6 +13,7 @@ const txListPage = () => {
 
   const [isOpen, setIsOpen] = useState(true);
   const [detailItem, setDetailItem] = useState([]);
+  const [acctDetail, setAcctDetail] = useState([]);
 
 
 
@@ -33,7 +36,9 @@ const txListPage = () => {
   };
 
   useEffect(() => {
-    setItems(dtlList.slice(0,10));
+    setAcctDetail(acctDetailJson[0]);//계좌상세
+    setItems(dtlList.slice(0,10));//거래내역
+    console.log(`setacct : `+ acctDetail);
   }, []);
 
   const onClickCardItem = (item) => {
@@ -46,8 +51,9 @@ const txListPage = () => {
   return (
     // 상단 헤더 크기만큼 컨텐츠를 내려줌.
     <div style={{ paddingTop: "40px" }}>
+      <Account item={acctDetail}></Account>
       <Card>
-        <InfiniteScroll dataLength={items.length} next={fetchMoreData} hasMore={hasMore} loader={<h4>Loading...</h4>}>
+        <InfiniteScroll dataLength={items.length} next={fetchMoreData} hasMore={hasMore} loader={<h1>Loading...</h1>}>
           {/* <Card.CardContent> */}
             {items.map((item, index) => {
               return <CardItem onClick={() => onClickCardItem(item)} key={index} item={item} />;
