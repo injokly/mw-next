@@ -9,7 +9,7 @@ import React from "react";
 
 export const TagBackgroundDark = ({ txt = "#txt", className }) => {
   return (
-    <div className={`tag-background-dark ${className}`}>
+    <div className={`tag-background-lime ${className}`}>
       <div className="text-wrapper">{txt}</div>
     </div>
   );

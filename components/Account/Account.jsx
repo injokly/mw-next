@@ -15,13 +15,14 @@ export const Account = ({ item }) => {
       <div className="auto-layout-vertical">
         <div className="auto-layout">
           <div className="text-wrapper-2">{item.acctNckNm}</div>
-          <TagBackgroundDark className="design-component-instance-node" txt="#txt" />
+          <TagBackgroundDark className="design-component-instance-node" txt="생활금리" />
         </div>
         <div className="text-wrapper-3">{item.acctNbr}</div>
       </div>
       <div className="div-wrapper">
         <div className="text-wrapper-4">{Number(item.totMnyWhdrwlAmt)}<span>원</span></div>
       </div>
+
       {/* 적금용 바 그래프 */}
       {item.pdCd!=='01011000100000000018'&& <div className="frame-2">
         <div className="rectangle-wrapper">
@@ -34,7 +35,8 @@ export const Account = ({ item }) => {
           <img className="vector" alt="Vector" src="https://c.animaapp.com/PCya1b4e/img/vector-212-1.svg" />
         </div>
       </div>}
-      <div className="frame-5">
+
+      {/* <div className="frame-5">
         <Info
           className="info-instance"
           comp="txt"
@@ -43,39 +45,24 @@ export const Account = ({ item }) => {
           level="two"
           titleTxt="#title_txt"
         />
-        <Info
-          className="info-instance"
-          comp="txt"
-          contentDivClassName="info-3"
-          divClassName="info-2"
-          level="two"
-          titleTxt="#title_txt"
-        />
-        <Info
-          className="info-instance"
-          comp="txt"
-          contentDivClassName="info-3"
-          divClassName="info-2"
-          level="two"
-          titleTxt="#title_txt"
-        />
-      </div>
+      </div> */}
+
       <div className="txt-wrapper">
         <Txt
-          btnTxt="#btnTxt"
+          btnTxt="도전하기"
           className="design-component-instance-node"
           divClassName="txt-3"
-          grade="ter"
+          grade="pri"
           level="two"
-          showIco="off"
+          showIco="on"
           showPadding="on"
-          showUnderline="on"
-          state="default"
+          showUnderline="off"
+          state="ico"
           underlineClassName="txt-4"
         />
       </div>
       {item.pdCd==='01011000100000000018' && 
-      <Ctrl className="ctrl-instance" horiResizing="fill" solidBg="nega" solidBtnTxt="#btnTxt" solidGrade="sec" />
+      <Ctrl className="ctrl-instance" count="2" horiResizing="fill" solidBg="nega" solidBtnTxt="이체하기" solidGrade="sec" />
       }
     </div>
   );

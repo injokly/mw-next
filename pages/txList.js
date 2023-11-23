@@ -7,15 +7,17 @@ import acctDetailJson from"@/public/datas/acctDetail";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { deviceState } from "@/recoil/global";
+import { useRecoilState } from "recoil";
 
 const txListPage = () => {
+  const [lDeviceState, setDeviceState] = useRecoilState(deviceState);
+
   const router = useRouter();
 
   const [isOpen, setIsOpen] = useState(true);
   const [detailItem, setDetailItem] = useState([]);
   const [acctDetail, setAcctDetail] = useState([]);
-
-
 
   const [items, setItems] = useState([]);
   const [hasMore, setHasMore] = useState(true);
@@ -36,6 +38,7 @@ const txListPage = () => {
   };
 
   useEffect(() => {
+    setDeviceState("APP");//모바일 디바이스를 전역상태에 저장
     setAcctDetail(acctDetailJson[0]);//계좌상세
     setItems(dtlList.slice(0,10));//거래내역
     console.log(`setacct : `+ acctDetail);
