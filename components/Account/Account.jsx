@@ -22,8 +22,8 @@ export const Account = ({ item }) => {
       <div className="div-wrapper">
         <div className="text-wrapper-4">{Number(item.totMnyWhdrwlAmt)}<span>원</span></div>
       </div>
-
       {/* 적금용 바 그래프 */}
+
       {item.pdCd!=='01011000100000000018'&& <div className="frame-2">
         <div className="rectangle-wrapper">
           <div className="rectangle" />

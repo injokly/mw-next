@@ -3,7 +3,7 @@ import Card from "@/components/Card/Card";
 import CardItem from "@/components/Card/CardItem";
 import Modal from "@/components/Modal/Modal";
 import dtlList from "@/public/datas/dtlList";
-import acctDetailJson from"@/public/datas/acctDetail";
+import acctDetailJson from "@/public/datas/acctDetail";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -25,7 +25,7 @@ const txListPage = () => {
     // 여기서 추가 데이터를 가져오는 비동기 작업을 수행합니다.
     // 이 예제에서는 간단하게 더미 데이터를 추가합니다.
     setTimeout(() => {
-      const newItems = dtlList.slice(0,10);
+      const newItems = dtlList.slice(0, 10);
       console.log(`newItems ` + newItems);
       setItems([...items, ...newItems]);
 
@@ -38,10 +38,13 @@ const txListPage = () => {
   };
 
   useEffect(() => {
-    setDeviceState("APP");//모바일 디바이스를 전역상태에 저장
-    setAcctDetail(acctDetailJson[0]);//계좌상세
-    setItems(dtlList.slice(0,10));//거래내역
-    console.log(`setacct : `+ acctDetail);
+    setDeviceState("APP"); //모바일 디바이스를 전역상태에 저장
+    setAcctDetail(acctDetailJson[0]); //계좌상세
+    setItems(dtlList.slice(0, 10)); //거래내역
+    console.log(`setacct : ` + acctDetail);
+    return () => {
+      setDeviceState("MW"); //컴포넌트 사라질 때 해당 작업 수행
+    };
   }, []);
 
   const onClickCardItem = (item) => {
@@ -55,12 +58,13 @@ const txListPage = () => {
     // 상단 헤더 크기만큼 컨텐츠를 내려줌.
     <div style={{ paddingTop: "40px" }}>
       <Account item={acctDetail}></Account>
+
       <Card>
         <InfiniteScroll dataLength={items.length} next={fetchMoreData} hasMore={hasMore} loader={<h1>Loading...</h1>}>
           {/* <Card.CardContent> */}
-            {items.map((item, index) => {
-              return <CardItem onClick={() => onClickCardItem(item)} key={index} item={item} />;
-            })}
+          {items.map((item, index) => {
+            return <CardItem onClick={() => onClickCardItem(item)} key={index} item={item} />;
+          })}
           {/* </Card.CardContent> */}
         </InfiniteScroll>
       </Card>
