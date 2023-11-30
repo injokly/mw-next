@@ -1,4 +1,4 @@
-import { Account } from "@/components/Account";
+import { Account } from "@/components/Account/Account";
 import Card from "@/components/Card/Card";
 import CardItem from "@/components/Card/CardItem";
 import Modal from "@/components/Modal/Modal";
@@ -43,7 +43,7 @@ const txListPage = () => {
     setItems(dtlList.slice(0, 10)); //거래내역
     console.log(`setacct : ` + acctDetail);
     return () => {
-      setDeviceState("MW"); //컴포넌트 사라질 때 해당 작업 수행
+      setDeviceState("MW"); //컴포넌트 사라질 때 해당 작업 수행. 모바일 디바이스를 전역상태에 저장
     };
   }, []);
 
@@ -56,7 +56,7 @@ const txListPage = () => {
 
   return (
     // 상단 헤더 크기만큼 컨텐츠를 내려줌.
-    <div style={{ paddingTop: "40px" }}>
+    <div>
       <Account item={acctDetail}></Account>
 
       <Card>
