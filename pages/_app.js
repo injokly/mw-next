@@ -3,7 +3,7 @@ import "@/styles/reset.css";
 import "@/styles/kbank_renew.css";
 import "@/styles/m_web.css";
 import "@/styles/swiper.min.css";
-import "@/styles/globals.css";
+// import "@/styles/globals.css";
 import "@/styles/font.css";
 import "@/styles/Card.css";
 import "@/styles/Modal.css";

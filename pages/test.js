@@ -54,7 +54,7 @@ const test = () => {
                       </Link>
                     </li>
                     <li>
-                      <Link href="/trnsList/susin">
+                      <Link href="/trnsList/loan">
                         <em>
                           운영중인 css를 활용하여 컴포넌트 만들기
                           <span>대출 거래내역 페이지</span>
