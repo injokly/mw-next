@@ -41,7 +41,23 @@ const test = () => {
                       <Link href="/txList">
                         <em>
                           Compound Coponent Design Pattern
-                          <span>거래내역 컴포넌트 by List</span>
+                          <span>거래내역 컴포넌트 by Anima</span>
+                        </em>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/trnsList/susin">
+                        <em>
+                          운영중인 css를 활용하여 컴포넌트 만들기
+                          <span>입출금 거래내역 페이지</span>
+                        </em>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/trnsList/susin">
+                        <em>
+                          운영중인 css를 활용하여 컴포넌트 만들기
+                          <span>대출 거래내역 페이지</span>
                         </em>
                       </Link>
                     </li>

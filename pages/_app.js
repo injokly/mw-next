@@ -1,8 +1,9 @@
-import "@/styles/globals.css";
+import "@/styles/productGlobal.css"; //운영중인 버전 전역 css 모음
 import "@/styles/reset.css";
 import "@/styles/kbank_renew.css";
 import "@/styles/m_web.css";
 import "@/styles/swiper.min.css";
+import "@/styles/globals.css";
 import "@/styles/font.css";
 import "@/styles/Card.css";
 import "@/styles/Modal.css";
