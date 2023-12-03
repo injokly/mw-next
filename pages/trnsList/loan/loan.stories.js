@@ -1,8 +1,8 @@
-import { 여신 } from ".";
+import { loan } from ".";
 
 export default {
-  title: "거래내역/여신",
-  component: 여신,
+  title: "거래내역/loan",
+  component: loan,
 };
 
 export const Default = {

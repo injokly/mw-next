@@ -1,2 +1,2 @@
-import { 여신 } from "./여신.jsx";
-export default 여신;
+import { loan } from "./loan.jsx";
+export default loan;

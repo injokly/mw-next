@@ -1,8 +1,8 @@
-import { 입출금 } from ".";
+import { susin } from ".";
 
 export default {
-  title: "Components/입출금",
-  component: 입출금,
+  title: "Components/susin",
+  component: susin,
 };
 
 export const Default = {
