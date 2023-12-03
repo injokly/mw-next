@@ -1,0 +1,126 @@
+/*! component layout header 간격 */
+.component-header + [class*="component-"]{margin-top:2.4rem}
+.component-header + .component-board{margin-top:0}
+.component-header + .component-carousel-rec-all{margin-top:0.8rem}
+.component-header + .component-card-bg,.component-header + .component-keypad{margin-top:0}
+.component-header + .component-text-h64{margin-top:6.4rem}
+.component-header + .component-text-simple.bg-white{margin-top:0;padding-top:2.4rem}
+
+/*! component element header layout */
+.component-header{position:relative;top:0;top:constant(safe-area-inset-top);top:env(safe-area-inset-top);left:0;width:100%;z-index:80;padding:0;background-color:#fff}
+.component-header.bg-gray{background-color:#f8f8f8}
+.component-header.bg-primary1{background-color:#17008c}
+.component-header.bg-primary1 > *{color:#fff}
+.component-header.bg-primary2{background-color:#b6f23d}
+.component-header.bg-secondary2{background-color:#80d5d1}
+.component-header.bg-coolgray2{background-color:#e6ebf5}
+.component-header.bg-coolgray3{background-color:#d7dfef}
+.component-header.bg-coolgray4{background-color:#f1f6fb}
+.component-header.bg-insure{background-color:#e6ebf5}
+.component-header.bg-blue{background-color:#17008c}
+.component-header.bg-blue > *{color:#fff}
+.component-header.bg-blue .ico-back{-webkit-filter:brightness(0) invert(1);filter:brightness(0) invert(1)}
+.component-header.bg-trans{background-color:transparent}
+.component-header[class*="bg-moneytalk-color"] > *{color:#fff}
+.component-header[class*="bg-moneytalk-color"] .ico-back{-webkit-filter:brightness(0) invert(1);filter:brightness(0) invert(1)}
+.component-header.bg-moneytalk-color1{background-color:#003fc7}
+.component-header.bg-moneytalk-color2{background-color:#4946f7}
+.component-header.bg-moneytalk-color3{background-color:#b346f7}
+.component-header.bg-moneytalk-color4{background-color:#e742e4}
+.component-header.bg-moneytalk-color5{background-color:#1c97ff}
+.component-header.bg-moneytalk-color6{background-color:#0150ff}
+.component-header.bg-moneytalk-color7{background-color:#a451f7}
+.page-inner-scroll.scrolling .component-header[class*="bg-moneytalk-color"]{background-color:#fff!important}
+.page-inner-scroll.scrolling .component-header[class*="bg-moneytalk-color"] .ico-back{-webkit-filter:grayscale(100%) brightness(0) invert(0) sepia(28%) saturate(97%) hue-rotate(359deg) brightness(84%) contrast(84%)!important;filter:grayscale(100%) brightness(0) invert(0) sepia(28%) saturate(97%) hue-rotate(359deg) brightness(84%) contrast(84%)!important}
+.page-inner-scroll.scrolling .component-header[class*="bg-moneytalk-color"] .header-content .tit-header span{color:#141414!important}
+.component-header.bg-darkgray2{background-color:#7d7d7d}
+.component-header.bg-darkgray2 > *{color:#fff}
+.component-header.bg-blue .ico-back,.component-header.bg-darkgray2 .ico-back,.component-header.bg-primary1 .ico-back,.component-header.bg-primary3 .ico-back{-webkit-filter:brightness(0) invert(1);filter:brightness(0) invert(1)}
+
+.component-header + .component-img-poll{margin-top:0!important}
+
+
+
+
+
+/*! component element header 기본 */
+.header-content{position:relative;height:5rem}
+.header-content a{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:5rem;height:5rem;position:absolute;top:0;z-index:1}
+.header-content a.btn-back{left:0}
+.header-content a.btn-home{right:0}
+.header-content a.btn-home .ico-home{width:2.4rem;height:2.4rem}
+.header-content a.btn-control{right:0;width:6rem}
+.header-content a.btn-control.auto{width:auto;right:2rem}
+.header-content a.btn-close{right:0}
+.header-content a.btn-close .ico-line{width:2rem;height:2rem}
+.header-content a.btn-close .ico-line:after,.header-content a.btn-close .ico-line:before{background-color:#141414}
+.header-content .btn-search{position:absolute;right:5rem}
+.header-content .tit-header{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:5rem;padding:0 5rem;font-size:1.8rem;line-height:1.38889;font-weight:400}
+.header-content .tit-header span{margin-top:0.2rem;overflow:hidden;-o-text-overflow:ellipsis;text-overflow:ellipsis;white-space:nowrap}
+.header-content.ui-animate .tit-header{opacity:0;-webkit-transition:opacity .3s ease;-o-transition:opacity .3s ease;transition:opacity .3s ease}
+.header-content.ui-animate .tit-header.show{opacity:1}
+.header-content .tit-header span.logo_moneytalk{margin-top:0}
+.header-content .tit-header span.logo_moneytalk img{width:9.6rem;vertical-align:middle}
+.logo-zeropay{display:inline-block;width:13rem}
+.logo-zeropay img{width:100%}
+.logo-kbankpay{display:inline-block;width:10rem;height:2.4rem}
+.logo-kbankpay img{width:100%}
+.header-content .btn-set{position:absolute;right:0}
+.header-content .btn-alarm{position:absolute;right:5rem}
+.header-content .btn-alarm .new-alarm{position:absolute;top:50%;left:50%;margin:-1.4rem 0 0 1rem;width:0.5rem;height:0.5rem;display:block;border-radius:50%;background:#f02727}
+.header-content .btn-clap{right:5rem;width:5rem;z-index:2;cursor:default}
+.btn-clap .tooltip-focus-group .tooltip-area.align-right{right:0}
+.btn-clap .tooltip-focus-group .tooltip-area.align-right:after{right:4.3rem}
+.ico-clap.ui-lottie{width:2.4rem;height:2.4rem}
+
+
+/* ******************* page.css 에서 가져옴 ************** */
+.card-layout-group.bg-primary3,.component-header.bg-primary3{background:#006aff}
+.card-layout-group.bg-primary3 .card-header .card-account-num,.card-layout-group.bg-primary3 .card-header .card-account-tit,.card-layout-group.bg-primary3 [class*="card-row"] .sum-num,.card-layout-group.bg-primary3.fixed .card-row,.component-header.bg-primary3 .header-content .tit-header span,.component-header.bg-primary3 .header-content a.btn-control{color:#fff}
+.card-layout-group.bg-primary3 .card-row-txt .card-col-tit{color:rgba(255, 255, 255, 0.7)}
+.card-layout-group.bg-primary3 .card-row-txt .card-col-tit em > span{padding:0 0.7rem}
+.card-layout-group.bg-primary3 .card-row-txt .card-col-tit .txt-lv03.bold{color:#fff;opacity:1}
+.card-layout-group.bg-primary3 .card-row-txt .card-col-tit .btn-arrow.primary1 .txt-lv03.bold{text-decoration:underline}
+
+/*! 공통 스타일 component element icon */
+/* [class*="ico-"]{display:inline-block;vertical-align:middle;background-repeat:no-repeat;background-position:center;background-size:contain} */
+/*! component element icon 화살표타입 */
+.ico-back{width:2.4rem;height:2.4rem;background-image:url('/resource/img/mmk/kds3/ico/line/chevron_left.svg')}
+.ico-back.white{-webkit-filter:brightness(0) invert(1);filter:brightness(0) invert(1)}
+.ico-arrow-open{width:1.4rem;height:1.4rem;background-image:url('/resource/img/mmk/kds3/ico/line/chevron_down.svg')}
+.ico-arrow-open.g900{-webkit-filter:grayscale(100%) brightness(0) invert(0) sepia(28%) saturate(97%) hue-rotate(359deg) brightness(84%) contrast(84%)!important;filter:grayscale(100%) brightness(0) invert(0) sepia(28%) saturate(97%) hue-rotate(359deg) brightness(84%) contrast(84%)!important}
+.ico-arrow-sbl{width:1.4rem;height:1.4rem;background-image:url('/resource/img/mmk/kds3/ico/line/chevron_left.svg')}
+.ico-arrow-link,.ico-arrow-sbr{width:1.4rem;height:1.4rem;background-image:url('/resource/img/mmk/kds3/ico/line/chevron_right.svg')}
+.ico-arrow-link.w20{width:2rem;height:2rem}
+.ico-arrow-link.g700{-webkit-filter:grayscale(100%) brightness(0) invert(48%) sepia(0) saturate(1%) hue-rotate(280deg) brightness(101%) contrast(85%);filter:grayscale(100%) brightness(0) invert(48%) sepia(0) saturate(1%) hue-rotate(280deg) brightness(101%) contrast(85%)}
+.ico-arrow-sbr.w24{width:2.4rem;height:2.4rem}
+.open .ico-arrow-open{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}
+.btn-view-more.close .ico-arrow-open{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}
+.ico-arrow-upright{width:2rem;height:2rem;background-image:url('/resource/img/mmk/kds3/ico/line/arrow_up_right.svg');-webkit-filter:grayscale(100%) brightness(0) invert(15%) sepia(98%) saturate(7496%) hue-rotate(241deg) brightness(54%) contrast(133%);filter:grayscale(100%) brightness(0) invert(15%) sepia(98%) saturate(7496%) hue-rotate(241deg) brightness(54%) contrast(133%)}
+.ico-calc{width:2.4rem;height:2.4rem;background-image:url('/resource/img/mmk/kds3/ico/line/calculator.svg')}
+.ico-arrow-up.solid{width:2.4rem;height:2.4rem;background-image:url('/resource/img/mmk/kds3/ico/solid/chevron_up.svg')}
+.ico-arrow-down.solid{width:2.4rem;height:2.4rem;background-image:url('/resource/img/mmk/kds3/ico/solid/chevron_down.svg')}
+.ico-arrow-left.solid{width:2.4rem;height:2.4rem;background-image:url('/resource/img/mmk/kds3/ico/solid/chevron_left.svg')}
+.ico-arrow-right.solid{width:2.4rem;height:2.4rem;background-image:url('/resource/img/mmk/kds3/ico/solid/chevron_right.svg')}
+.ico-limit_change.solid{width:2.4rem;height:2.4rem;background-image:url("/resource/img/mmk/kds3/ico/solid/limit_change.svg")}
+/*! component element icon 세모타입 */
+.ico-triangle-up-sample01{width:2.4rem;height:2.4rem;background-image:url('/resource/img/mmk/kds3/ico/solid/triangle_up.svg')}
+.ico-triangle-up-sample01.re700{-webkit-filter:grayscale(100%) brightness(0) invert(20%) sepia(89%) saturate(6127%) hue-rotate(354deg) brightness(104%) contrast(88%);filter:grayscale(100%) brightness(0) invert(20%) sepia(89%) saturate(6127%) hue-rotate(354deg) brightness(104%) contrast(88%)}
+.ico-triangle-down-sample01{width:2.4rem;height:2.4rem;background-image:url('/resource/img/mmk/kds3/ico/solid/triangle_down.svg')}
+.ico-triangle-down-sample01.bu600{-webkit-filter:grayscale(100%) brightness(0) invert(42%) sepia(53%) saturate(6585%) hue-rotate(196deg) brightness(103%) contrast(107%);filter:grayscale(100%) brightness(0) invert(42%) sepia(53%) saturate(6585%) hue-rotate(196deg) brightness(103%) contrast(107%)}
+.ico-triangle-left-sample01{width:2.4rem;height:2.4rem;background-image:url('/resource/img/mmk/kds3/ico/solid/triangle_up.svg');-webkit-transform:rotate(-90deg);-ms-transform:rotate(-90deg);transform:rotate(-90deg)}
+.ico-triangle-right-sample01{width:2.4rem;height:2.4rem;background-image:url('/resource/img/mmk/kds3/ico/solid/triangle_up.svg');-webkit-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}
+/*! component element icon 라인타입 */
+.ico-close-popup{width:2.4rem;height:2.4rem;background-image:url('/resource/img/mmk/kds3/ico/line/close.svg')}
+.ico-close-popup.white{-webkit-filter:brightness(0) invert(1);filter:brightness(0) invert(1)}
+.ico-delete{width:1.2rem;height:1.2rem;background-image:url("/resource/img/mmk/kds3/ico/line/close.svg");-webkit-filter:grayscale(100%) brightness(0) invert(86%) sepia(0) saturate(197%) hue-rotate(145deg) brightness(89%) contrast(82%);filter:grayscale(100%) brightness(0) invert(86%) sepia(0) saturate(197%) hue-rotate(145deg) brightness(89%) contrast(82%)}
+.ico-plus{width:2rem;height:2rem;background-image:url("/resource/img/mmk/kds3/ico/line/plus.svg")}
+.ico-minus{width:2rem;height:2rem;background-image:url("/resource/img/mmk/kds3/ico/line/minus.svg")}
+.ico-add{position:relative;width:3.4rem;height:3.4rem;background-color:#17008c;border-radius:50%}
+.ico-add:after{content:'';display:block;position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);transform:translate(-50%, -50%);width:2.4rem;height:2.4rem;background:url("/resource/img/mmk/kds3/ico/line/plus.svg") center center no-repeat;background-size:contain;-webkit-filter:brightness(0) invert(1);filter:brightness(0) invert(1)}
+.ico-add-wbk{width:3.4rem;height:3.4rem;background-image:url("/resource/banking/webresource/img/mmk/wbk/icon_plus.png")}
+.ico-tap{width:1.8rem;height:1.8rem;background-image:url("/resource/img/mmk/kds3/ico/line/double_line.svg")}
+.ico-x{margin:0 2px 0 8px;width:1.0rem;height:1.6rem;background-image:url("/resource/img/mmk/svg_common/ico_x.svg")}
+.ico-benefit-share{width:2.4rem;height:2.4rem;background-image:url("/resource/img/mmk/kds3/ico/line/share.svg")}
+.ico-benefit-heart{width:2.4rem;height:2.4rem;background-image:url("/resource/img/mmk/kds3/ico/line/heart.svg");-webkit-animation:heartbeat2 .3s 1 ease-in-out;animation:heartbeat2 .3s 1 ease-in-out}
+

@@ -1,10 +1,11 @@
-import { deviceState } from "@/recoil/global";
+import { deviceState, scrollState } from "@/recoil/global";
 import { useRecoilState } from "recoil";
 import AppNav from "./AppNav";
 import Nav from "./Nav";
 import { useEffect, useState } from "react";
 const Layout = ({ children }) => {
   const [lDeviceState, setDeviceState] = useRecoilState(deviceState);
+  const [proudctScrolling, setProudctScrolling] = useRecoilState(scrollState);
   console.log(`sdfsdfsdfsdf : ` + lDeviceState);
 
   const [scrolling, setScrolling] = useState(false);
@@ -13,7 +14,8 @@ const Layout = ({ children }) => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       setScrolling(scrollTop > 100); // Adjust the value based on when you want the header to change
-      // console.log(`scroll ........... : ` + scrolling);
+      setProudctScrolling(scrollTop > 140);
+      console.log(`scroll ........... : ` + scrolling);
     };
 
     window.addEventListener("scroll", handleScroll);

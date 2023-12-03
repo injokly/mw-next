@@ -247,7 +247,8 @@
 .card-layout-group.head-bg-light .card-tit{font-size:2.8rem;line-height:3.6rem;font-weight:700;color:#141414;margin-top:0.8rem}
 .card-layout-group.head-bg-light .card-subtxt01{font-size:1.6rem;font-weight:400;line-height:2.1rem;color:#000;opacity:0.5}
 .card-layout-group.head-bg-light .card-subtxt02{font-size:1.4rem;font-weight:400;color:#000;opacity:0.5;margin-top:1.2rem}
-.card-layout-group.fixed{padding:1.2rem 2.0rem}
+/* fixed 효과를 css에서 줌 TODO */
+.card-layout-group.fixed{position:fixed; top:94px;left:0px;right:0px;z-index:1;padding:1.2rem 2.0rem}
 .card-layout-group.fixed .card-row{font-size:1.6rem;line-height:1.3125;font-weight:400;margin:0}
 .card-layout-group.fixed.bg-primary1 .card-row .card-col-tit{color:#fff}
 .card-layout-group.fixed.bg-primary1 .card-row .card-col-content{color:#fff}
@@ -275,6 +276,17 @@
 .component-banner-card-report .swiper-button-next:after{background-image:url('/resource/img/mmk/kds3/ico/line/chevron_right.svg')}
 .component-banner-card-report .swiper-button-prev:after{background-image:url('/resource/img/mmk/kds3/ico/line/chevron_left.svg')}
 .component-banner-card-report .swiper-pagination-bullet + .swiper-pagination-bullet{margin-left:0.8rem}
+
+
+/* ******************* page.css 에서 가져옴 ************** */
+.card-layout-group.bg-primary3,.component-header.bg-primary3{background:#006aff}
+.card-layout-group.bg-primary3 .card-header .card-account-num,.card-layout-group.bg-primary3 .card-header .card-account-tit,.card-layout-group.bg-primary3 [class*="card-row"] .sum-num,.card-layout-group.bg-primary3.fixed .card-row,.component-header.bg-primary3 .header-content .tit-header span,.component-header.bg-primary3 .header-content a.btn-control{color:#fff}
+.card-layout-group.bg-primary3 .card-row-txt .card-col-tit{color:rgba(255, 255, 255, 0.7)}
+.card-layout-group.bg-primary3 .card-row-txt .card-col-tit em > span{padding:0 0.7rem}
+.card-layout-group.bg-primary3 .card-row-txt .card-col-tit .txt-lv03.bold{color:#fff;opacity:1}
+.card-layout-group.bg-primary3 .card-row-txt .card-col-tit .btn-arrow.primary1 .txt-lv03.bold{text-decoration:underline}
+
+
 
 
 /*! component layout search 간격 */
