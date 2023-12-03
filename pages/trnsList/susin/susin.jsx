@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from "./입출금.module.css";
+import styles from "./susin.module.css";
 import { deviceState } from "@/recoil/global";
 import { useRecoilState } from "recoil";
 import dtlList from "@/public/datas/입출금";

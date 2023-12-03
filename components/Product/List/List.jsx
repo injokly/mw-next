@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/pages/trnsList/susin/입출금.module.css";
+import styles from "@/pages/trnsList/susin/susin.module.css";
 const List = ({ dtlList, category }) => {
   //날짜 포맷팅 (20231101 -> 11.01)
   const toDateMd = (dateStr, gubun) => {

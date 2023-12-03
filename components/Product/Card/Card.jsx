@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/pages/trnsList/susin/입출금.module.css";
+import styles from "@/pages/trnsList/susin/susin.module.css";
 import { useRecoilState } from "recoil";
 import { scrollState } from "@/recoil/global";
 const Card = ({ items, category }) => {

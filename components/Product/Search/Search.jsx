@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/pages/trnsList/susin/입출금.module.css";
+import styles from "@/pages/trnsList/susin/susin.module.css";
 
 const Search = ({ items }) => {
   return (
