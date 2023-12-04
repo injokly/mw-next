@@ -8,7 +8,7 @@ import Card from "@/components/Product/Card/Card";
 import Search from "@/components/Product/Search/Search";
 import List from "@/components/Product/List/List";
 
-export const 입출금 = ({ item }) => {
+const susin = ({ item }) => {
   const [lDeviceState, setDeviceState] = useRecoilState(deviceState);
   const [items, setItems] = useState([]);
   const [category, setCategory] = useState("");
@@ -40,3 +40,4 @@ export const 입출금 = ({ item }) => {
     </div>
   );
 };
+export default susin;

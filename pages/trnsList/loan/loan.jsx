@@ -8,7 +8,7 @@ import Card from "@/components/Product/Card/Card";
 import Search from "@/components/Product/Search/Search";
 import List from "@/components/Product/List/List";
 
-export const 여신 = ({ item }) => {
+const loan = ({ item }) => {
   const [lDeviceState, setDeviceState] = useRecoilState(deviceState);
   const [items, setItems] = useState([]);
   const [category, setCategory] = useState("");
@@ -182,3 +182,4 @@ export const 여신 = ({ item }) => {
     </div>
   );
 };
+export default loan;
