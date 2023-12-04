@@ -30,7 +30,7 @@ const loan = ({ item }) => {
           <Card items={items} category={category} />
           <Search items={items} category={category} />
           <List dtlList={items.txBkdwInfo?.dtlList} category={category} />
-          <div className={styles["component-card-bg"]}>
+          {/* <div className={styles["component-card-bg"]}>
             <div className={[styles["card-layout-group"], styles["bg-primary3"]].join(" ")}>
               <div className={styles["card-header"]}>
                 <div className={styles["card-account-tit"]}>상품명or별칭(최대10자)</div>
@@ -176,7 +176,7 @@ const loan = ({ item }) => {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -6,8 +6,6 @@ import { useEffect, useState } from "react";
 const Layout = ({ children }) => {
   const [lDeviceState, setDeviceState] = useRecoilState(deviceState);
   const [proudctScrolling, setProudctScrolling] = useRecoilState(scrollState);
-  console.log(`sdfsdfsdfsdf : ` + lDeviceState);
-
   const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {
@@ -15,7 +13,7 @@ const Layout = ({ children }) => {
       const scrollTop = window.scrollY;
       setScrolling(scrollTop > 100); // Adjust the value based on when you want the header to change
       setProudctScrolling(scrollTop > 314);
-      console.log(`scroll ........... : ` + scrolling);
+      console.log(`scroll ........... : ` + proudctScrolling);
     };
 
     window.addEventListener("scroll", handleScroll);

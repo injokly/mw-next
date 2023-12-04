@@ -4,9 +4,9 @@ import HeadInfo from "@/components/HeadInfo";
 import Image from "next/image";
 import { useRouter } from "next/router.js";
 import axios from "axios";
-import { callAction } from "./api/fetch.js";
+//import { callAction } from "@/pages/api/fetch.js";
 import useSWR from "swr";
-import fetcher from "./api/fetch.js";
+import fetcher from "@/pages/api/fetch.js";
 import useSWRImmutable from "swr/immutable";
 
 const gifts = () => {

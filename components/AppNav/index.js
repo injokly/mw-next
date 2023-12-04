@@ -1,11 +1,11 @@
 import Link from "next/link";
 import React from "react";
-import navStyles from "../styles/Nav.module.css";
+//import navStyles from "../styles/Nav.module.css";
 import { useRouter } from "next/router.js";
-import { Ico } from "./Ico";
-import { Txt } from "./Txt";
+import { Ico } from "../Ico";
+import { Txt } from "../Txt";
 import { LineChevronLeft1 } from "@/icons/LineChevronLeft1";
-const AppNav = ({title}) => {
+const AppNav = ({ title }) => {
   const router = useRouter();
   console.log(router);
   return (

@@ -17,26 +17,27 @@ const products = () => {
       <div class="r2popup half" id="tmpId03" data-ui="r2popup" role="dialog" tabindex="-1">
         <div class="r2popup_window">
           <div class="r2popup_box mw-pop-agree">
-
             <div class="r2popup_header pd22">
               <h2 class="r2popup_title">케이뱅크 바로가기</h2>
             </div>
             <div class="r2popup_body">
               <div class="r2inpanel pd22">
-                <p>케이뱅크 앱에서 해당 서비스를 이용하실 수 있어요.<br />앱에서 확인하시겠어요?</p>
+                <p>
+                  케이뱅크 앱에서 해당 서비스를 이용하실 수 있어요.
+                  <br />
+                  앱에서 확인하시겠어요?
+                </p>
               </div>
             </div>
 
             <div class="r2popup_footer">
-              <div class="r2popupfoot_btnpanel">
-
-              </div>
+              <div class="r2popupfoot_btnpanel"></div>
             </div>
           </div>
         </div>
       </div>
-    )
-  }
+    );
+  };
 
   useEffect(() => {
     // axios.post(`${uri}`, params)
@@ -56,7 +57,6 @@ const products = () => {
         setPdRcmdFavSvrList2(data.pdRcmdFavSvrList2);
         setPdRcmdFavSvrList3(data.pdRcmdFavSvrList3);
         setIsLoading(false);
-
       })
       .catch(function (error) {
         console.log(error);
@@ -70,9 +70,13 @@ const products = () => {
 
   return (
     <div id="mWebWrap">
-      <Script strategy="afterInteractive" src={process.env.PUBLIC_URL + "/resource/js/cmm/lib/swiper.min.js"} onLoad={() => {
-        let prdBannerSwiper = new Swiper('.product-carousel-group.ui-swiper .swiper-container', { spaceBetween: 10, loop: false })
-      }} />
+      <Script
+        strategy="afterInteractive"
+        src={process.env.PUBLIC_URL + "/resource/js/cmm/lib/swiper.min.js"}
+        onLoad={() => {
+          let prdBannerSwiper = new Swiper(".product-carousel-group.ui-swiper .swiper-container", { spaceBetween: 10, loop: false });
+        }}
+      />
       <div id="container">
         <div id="container_inner">
           <div id="content">
@@ -83,9 +87,7 @@ const products = () => {
               <div class="main-tab-container">
                 <div class="main-tab-content">
                   <div class="container-component frm-prd pb0">
-
                     <div class="headertab-products">
-
                       <div class="component-tab sticky-tab no-space type-extend">
                         <div class="tab-group ui-tab">
                           <div class="tab-round-group">
@@ -104,7 +106,6 @@ const products = () => {
                           </div>
                         </div>
                       </div>
-
                     </div>
 
                     <div class="component-products-carousel">
@@ -119,7 +120,7 @@ const products = () => {
                               <div class="swiper-slide">
                                 <a class="section-link" href="#none">
                                   <div class="frm-card">
-                                    <div class="img-figure" >
+                                    <div class="img-figure">
                                       <img src={process.env.PUBLIC_URL + decodeURIComponent(list.imgFile).replace(/\+/g, " ")} alt="" />
                                       <p class="txt-notice">
                                         <span>{decodeURIComponent(list.crtDesc).replace(/\+/g, " ")}</span>
@@ -140,7 +141,6 @@ const products = () => {
                           </div>
                         </div>
                       </div>
-
                     </div>
 
                     <div class="component-product-list">
@@ -153,13 +153,11 @@ const products = () => {
                             <li>
                               <a>
                                 <em>
-
                                   <span>{decodeURIComponent(list.fnclNm).replace(/\+/g, " ")}</span>
                                   <span>{decodeURIComponent(list.mktDesc).replace(/\+/g, " ")}</span>
                                 </em>
                               </a>
                               {/* <span class="ico-txt">{decodeURIComponent(list.btnNm).replace(/\+/g, " ")}</span> */}
-
                             </li>
                           ))}
                         </ul>
@@ -182,7 +180,9 @@ const products = () => {
                                   <img src={process.env.PUBLIC_URL + decodeURIComponent(list.imgFile).replace(/\+/g, " ")} alt="" />
                                   <span>{decodeURIComponent(list.fnclNm).replace(/\+/g, " ")}</span>
                                 </em>
-                                <b class="txt-detail"><span>{decodeURIComponent(list.mktDesc).replace(/\+/g, " ")}</span></b>
+                                <b class="txt-detail">
+                                  <span>{decodeURIComponent(list.mktDesc).replace(/\+/g, " ")}</span>
+                                </b>
                               </a>
                             </li>
                           ))}
@@ -192,16 +192,11 @@ const products = () => {
                   </div>
                 </div>
               </div>
-
             </div>
-
-
           </div>
         </div>
       </div>
-
     </div>
-
   );
 };
 
