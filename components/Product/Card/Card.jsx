@@ -98,7 +98,7 @@ const Card = ({ items, category }) => {
 
         {category === "susin" && (
           <div className={styles["btn-group"]}>
-            <button className={styles["btn-lv02"]} type="button">
+            <button className={styles["btn-lv02"]}>
               <span className={styles["txt"]}>가져오기</span>
             </button>
             <a className={styles["btn-lv02"]} href="#none">
@@ -109,7 +109,7 @@ const Card = ({ items, category }) => {
 
         {category === "loan" && (
           <div className={styles["btn-group"]}>
-            <button className={[styles["btn-lv02"], styles["white"]].join(" ")} type="button">
+            <button className={[styles["btn-lv02"], styles["white"]].join(" ")}>
               <span className={styles["txt"]}>한도관리</span>
             </button>
             <a className={[styles["btn-lv02"], styles["white"]].join(" ")} href="#none">
@@ -118,14 +118,6 @@ const Card = ({ items, category }) => {
           </div>
         )}
 
-        {/* <div className={styles["btn-group"]}>
-        <button className={styles["btn-lv02"]} type="button">
-          <span className={styles["txt"]}>용돈 조르기</span>
-        </button>
-        <a className={styles["btn-lv02"]} href="#none">
-          <span className={styles["txt"]}>이체하기</span>
-        </a>
-      </div> */}
       </div>
       {proudctScrolling && (
         <div className={[styles["card-layout-group"], styles["fixed"], category === "susin" ? styles["bg-primary1"] : styles["bg-primary3"]].join(" ")}>

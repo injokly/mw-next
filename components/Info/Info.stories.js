@@ -1,4 +1,4 @@
-import { Info } from ".";
+import { Info } from "./Info";
 
 export default {
   title: "Components/Info",

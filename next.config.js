@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const path = require("path");
+
 const nextConfig = {
   reactStrictMode: false,
   experimental: {
@@ -13,21 +15,26 @@ const nextConfig = {
     ],
   },
   env: {
-    PUBLIC_URL: 'https://www.kbanknow.com'
+    PUBLIC_URL: "https://www.kbanknow.com",
   },
   async rewrites() {
     return {
       fallback: [
         {
-          source: '/ib20/act/:path*',
-          destination: 'https://m.kbanknow.com/ib20/act/:path*',
+          source: "/ib20/act/:path*",
+          destination: "https://m.kbanknow.com/ib20/act/:path*",
         },
         {
-          source: '/resource/img/:path*',
-          destination: 'https://m.kbanknow.com/resource/img/:path*',
+          source: "/resource/img/:path*",
+          destination: "https://m.kbanknow.com/resource/img/:path*",
         },
-      ]
-    }
+      ],
+    };
+  },
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    // Add your custom webpack configurations here
+    config.resolve.modules.push(path.resolve("./"));
+    return config;
   },
   // async headers() {
   //   return [
@@ -46,6 +53,6 @@ const nextConfig = {
   //     },
   //   ]
   // },
-}
+};
 
 module.exports = nextConfig;

@@ -1,7 +1,11 @@
 import React from "react";
 import styles from "@/pages/trnsList/susin/susin.module.css";
-//import styles from "./Header.module.css";
-const Header = ({ items, category }) => {
+import PropTypes from "prop-types";
+const Header = ({ 
+  items,
+  category,
+  title = "#title",
+}) => {
   return (
     <div className={[styles["component-header"], category === "susin" ? styles["bg-primary1"] : styles["bg-primary3"]].join(" ")}>
       <div className={styles["header-group"]}>
@@ -11,7 +15,7 @@ const Header = ({ items, category }) => {
             <span className={styles["hide-txt"]}>이전</span>
           </a>
           <h1 className={styles["tit-header"]}>
-            <span>{items.acctDtlInfo?.acctNm}</span>
+            <span>{title}</span>
           </h1>
           <a className={styles["btn-control"]} href="#none">
             <span>관리</span>
@@ -20,6 +24,13 @@ const Header = ({ items, category }) => {
       </div>
     </div>
   );
+};
+
+Header.propTypes = {
+  items: PropTypes.object,
+  title: PropTypes.string,
+  category: PropTypes.string,
+
 };
 
 export default Header;

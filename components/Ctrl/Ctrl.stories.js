@@ -1,4 +1,4 @@
-import { Ctrl } from ".";
+import { Ctrl } from "./Ctrl";
 
 export default {
   title: "Components/Ctrl",
