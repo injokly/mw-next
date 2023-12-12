@@ -8,11 +8,20 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_63caaa5b1b14f2b"
   },
   "dependencies": {
+    "@carbon/icons-react": "^11.32.0",
     "@headlessui/react": "^1.7.17",
+    "@storybook/addon-a11y": "^7.6.3",
+    "@types/classnames": "^2.3.1",
+    "@types/luxon": "^3.3.7",
+    "@types/react-dom": "^18",
+    "aesthetic": "^5.2.0",
+    "aesthetic-react": "^2.2.1",
     "axios": "^1.6.1",
+    "classnames": "^2.3.2",
     "next": "14.0.1",
     "node-sass": "^9.0.0",
     "prop-types": "^15.8.1",
@@ -22,7 +31,8 @@
     "react-query": "^3.39.3",
     "recoil": "^0.7.7",
     "sass": "^1.69.5",
-    "swr": "^2.2.4"
+    "swr": "^2.2.4",
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.3",
@@ -33,6 +43,11 @@
     "@storybook/nextjs": "^7.6.3",
     "@storybook/react": "^7.6.3",
     "@storybook/test": "^7.6.3",
+    "@types/node": "^20.10.4",
+    "@types/react": "^18.2.43",
+    "chromatic": "^10.1.0",
     "storybook": "^7.6.3"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "mw-test@0.1.0"
 }

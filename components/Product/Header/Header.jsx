@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 const Header = ({ 
   items,
   category,
-  title = "#title",
+  title = items?.acctDtlInfo?.acctNm,
 }) => {
+  console.log(`Header items `+items);
   return (
     <div className={[styles["component-header"], category === "susin" ? styles["bg-primary1"] : styles["bg-primary3"]].join(" ")}>
       <div className={styles["header-group"]}>
@@ -29,7 +30,7 @@ const Header = ({
 Header.propTypes = {
   items: PropTypes.object,
   title: PropTypes.string,
-  category: PropTypes.string,
+  category: PropTypes.oneOf(["susin", "loan"]),  
 
 };
 

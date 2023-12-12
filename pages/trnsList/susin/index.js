@@ -7,8 +7,9 @@ import Header from "@/components/Product/Header/Header";
 import Card from "@/components/Product/Card/Card";
 import Search from "@/components/Product/Search/Search";
 import List from "@/components/Product/List/List";
+import PropTypes from "prop-types";
 
-const susin = ({ item }) => {
+const susin = ({ storyItems }) => {
   const [lDeviceState, setDeviceState] = useRecoilState(deviceState);
   const [items, setItems] = useState([]);
   const [category, setCategory] = useState("");
@@ -16,7 +17,11 @@ const susin = ({ item }) => {
   useEffect(() => {
     setDeviceState(""); //모바일 디바이스를 전역상태에 저장
     setCategory("susin");
-    setItems(dtlList); //계좌 전체 정보
+    if (storyItems) {
+      setItems(storyItems); //storybook용 데이터 세팅
+    } else {
+      setItems(dtlList); //계좌 전체 정보
+    }
     return () => {
       setDeviceState("MW"); //컴포넌트 사라질 때 해당 작업 수행. 모바일 디바이스를 전역상태에 저장
     };
@@ -40,4 +45,10 @@ const susin = ({ item }) => {
     </div>
   );
 };
+
+susin.propTypes = {
+  storyItems: PropTypes.object,
+  category: PropTypes.oneOf(["susin", "loan"]),
+};
+
 export default susin;

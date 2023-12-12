@@ -2,7 +2,15 @@ import React from "react";
 import styles from "@/pages/trnsList/susin/susin.module.css";
 import { useRecoilState } from "recoil";
 import { scrollState } from "@/recoil/global";
-const Card = ({ items, category }) => {
+import PropTypes from "prop-types";
+const Card = ({ 
+  items, 
+  category,
+  acctNm=items?.acctDtlInfo?.acctNm,
+  acctNbr=items?.acctDtlInfo?.acctNbr,
+  whdrwlAblAmt=items?.acctDtlInfo?.whdrwlAblAmt,
+  //proudctScrolling=false,
+ }) => {
   const [proudctScrolling, setProudctScrolling] = useRecoilState(scrollState);
   //날짜 포맷팅 (20231101 -> 11.01)
   const toDateMd = (dateStr, gubun) => {
@@ -25,18 +33,18 @@ const Card = ({ items, category }) => {
       <div className={[styles["card-layout-group"], category === "susin" ? styles["bg-primary1"] : styles["bg-primary3"]].join(" ")}>
         <div className={styles["card-header"]}>
           <div className={styles["card-account-tit"]}>
-            {items.acctDtlInfo?.acctNm}
+            {acctNm}
             {category === "susin" && (
               <div className={[styles["tag"], styles["account"]].join(" ")}>
                 <span className={[styles["txt"], styles["real-black"]].join(" ")}>생활금리</span>
               </div>
             )}
           </div>
-          <div className={styles["card-account-num"]}>{items.acctDtlInfo?.acctNbr}</div>
+          <div className={styles["card-account-num"]}>{acctNbr}</div>
         </div>
         <div className={styles["card-row-main"]}>
           <div className={styles["card-col-content"]}>
-            <div className={styles["sum-num"]}>{toMoney(Number(items.acctDtlInfo?.whdrwlAblAmt))}원</div>
+            <div className={styles["sum-num"]}>{toMoney(Number(whdrwlAblAmt))}원</div>
           </div>
         </div>
         {category === "loan" && (
@@ -136,6 +144,15 @@ const Card = ({ items, category }) => {
     </div> */}
     </div>
   );
+};
+
+Card.propTypes = {
+  items: PropTypes.object,
+  category: PropTypes.oneOf(["susin", "loan"]),  
+  acctNm: PropTypes.string,
+  acctNbr: PropTypes.string,
+  whdrwlAblAmt: PropTypes.string,
+  //proudctScrolling: PropTypes.bool,
 };
 
 export default Card;

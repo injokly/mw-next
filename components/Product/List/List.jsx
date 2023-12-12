@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "@/pages/trnsList/susin/susin.module.css";
-const List = ({ dtlList, category }) => {
+import PropTypes from "prop-types";
+const List = ({ 
+  dtlList, 
+  category,
+}) => {
   //날짜 포맷팅 (20231101 -> 11.01)
   const toDateMd = (dateStr, gubun) => {
     const re = /(\d{2})(\d{2})/;
@@ -58,5 +62,9 @@ const List = ({ dtlList, category }) => {
     </div>
   );
 };
+List.propTypes = {
+  dtlList: PropTypes.array, 
+  category: PropTypes.oneOf(["susin", "loan"]),  
 
+};
 export default List;

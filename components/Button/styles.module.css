@@ -1,0 +1,25 @@
+.btn {
+    /* Your styles for the base button */
+    margin-right:5.8rem
+  }
+  
+  .btnSm {
+    margin-right:10.8rem;
+    width:5.6rem;height:5.6rem;
+    /* Your styles for the small button */
+  }
+  .cds--btn--primary{
+    margin-right:15.8rem;
+
+  }
+
+  .cds--btn--sm{
+    margin-right:15.8rem;
+    block-size: 15rem;
+  }
+
+.btn-lv01,.btn-lv02,.btn-lv03,.btn-lv04{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.btn-lv01 [class*="ico-"]{margin-right:0.8rem}
+.btn-lv03 [class*="ico-"]{margin-right:0.4rem;width:1.6rem;height:1.6rem}
+.bg-primary1 .btn-lv02,[class*="btn-lv"].white{background-color:rgba(255, 255, 255, 0.15)}
+.bg-primary1 .btn-lv02 .txt,[class*="btn-lv"].white .txt{color:#fff}

@@ -42,8 +42,8 @@ export const Default = {
     showUnderline: "off",
     showPadding: "off",
     state: "default",
-    className: {},
-    divClassName: {},
-    underlineClassName: {},
+    className: "",
+    divClassName: "",
+    underlineClassName: "",
   },
 };
