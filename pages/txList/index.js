@@ -18,7 +18,7 @@ const txListPage = () => {
 
   const router = useRouter();
 
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [detailItem, setDetailItem] = useState([]);
   const [acctDetail, setAcctDetail] = useState([]);
 
@@ -59,15 +59,18 @@ const txListPage = () => {
 
   return (
     // 상단 헤더 크기만큼 컨텐츠를 내려줌.
-    <div>
+    <div className="container-pop">
       <Account item={acctDetail}></Account>
-      <Popup
-        onClose={() => {
-          setIsOpen(!isOpen);
-        }}
-        isOpen={isOpen}
-        item={acctDetail}
-      ></Popup>
+      {isOpen && (
+        <Popup
+          onClose={() => {
+            setIsOpen(!isOpen);
+          }}
+          isOpen={isOpen}
+          item={detailItem}
+        ></Popup>
+      )}
+      {isOpen && <motion.div className="dimmed-background" initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} exit={{ opacity: 0 }} onClick={() => setIsOpen(!isOpen)} />}
 
       <Card>
         <InfiniteScroll dataLength={items.length} next={fetchMoreData} hasMore={hasMore} loader={<h1>Loading...</h1>}>
