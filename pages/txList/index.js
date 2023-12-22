@@ -9,6 +9,9 @@ import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { deviceState } from "@/recoil/global";
 import { useRecoilState } from "recoil";
+//motion
+import { motion } from "framer-motion";
+import Popup from "../popup";
 
 const txListPage = () => {
   const [lDeviceState, setDeviceState] = useRecoilState(deviceState);
@@ -58,6 +61,13 @@ const txListPage = () => {
     // 상단 헤더 크기만큼 컨텐츠를 내려줌.
     <div>
       <Account item={acctDetail}></Account>
+      <Popup
+        onClose={() => {
+          setIsOpen(!isOpen);
+        }}
+        isOpen={isOpen}
+        item={acctDetail}
+      ></Popup>
 
       <Card>
         <InfiniteScroll dataLength={items.length} next={fetchMoreData} hasMore={hasMore} loader={<h1>Loading...</h1>}>
@@ -69,7 +79,7 @@ const txListPage = () => {
         </InfiniteScroll>
       </Card>
 
-      {!isOpen && (
+      {/* {!isOpen && (
         <Modal
           item={detailItem}
           onClick={(data) => {
@@ -81,7 +91,7 @@ const txListPage = () => {
           </Modal.Header>
           <Modal.Content></Modal.Content>
         </Modal>
-      )}
+      )} */}
     </div>
   );
 };

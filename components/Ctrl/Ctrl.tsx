@@ -1,23 +1,26 @@
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/
-
 import PropTypes from "prop-types";
 import React from "react";
 import { Solid } from "../Solid";
+import styles from './styles.module.css';
 
 export const Ctrl = ({
+  children,
   showSecBtn = false,
   horiResizing,
   className,
   solidBg = "posi",
   solidBtnTxt = "#btn_txt",
   solidGrade = "pri",
-}) => {
+}:any) => {
+  console.log(`Ctrl props children ` + children )
   return (
-    <div className={`ctrl ${horiResizing} ${className}`}>
-      <Solid
+    <div className={[styles[`ctrl`], styles[`${horiResizing}`], styles[`${className}`]].join(" ")}>
+    {/* <div className={`ctrl ${horiResizing} ${className}`}> */}
+      {
+        React.Children.map(children,(child) => 
+        child ? child : null        
+      )}
+      {/* <Solid
         bg={horiResizing === "fill" ? solidBg : "posi"}
         btnTxt={horiResizing === "fill" ? solidBtnTxt : "#btn_txt"}
         className={`${horiResizing === "fixed" && "class-4"} ${horiResizing === "fill" && "class-5"}`}
@@ -28,7 +31,7 @@ export const Ctrl = ({
         state="default"
       />
       <Solid
-        bg={horiResizing === "fill" ? solidBg : "posi"}
+        bg={'posisdfsdfsdf'}
         btnTxt={horiResizing === "fill" ? solidBtnTxt : "#btn_txt"}
         className={`${horiResizing === "fixed" && "class-4"} ${horiResizing === "fill" && "class-5"}`}
         elementBtnIcoTxtClassName={`${horiResizing === "fixed" && "class-3"}`}
@@ -36,7 +39,7 @@ export const Ctrl = ({
         showIco="off"
         size="medium"
         state="default"
-      />
+      /> */}
     </div>
   );
 };
@@ -47,4 +50,5 @@ Ctrl.propTypes = {
   solidBg: PropTypes.string,
   solidBtnTxt: PropTypes.string,
   solidGrade: PropTypes.string,
+  children:PropTypes.node,
 };

@@ -158,7 +158,7 @@ const Button = React.forwardRef(function Button<T extends React.ElementType>(
     [`${prefix}--btn--expressive`]: isExpressive,
     [`${prefix}--btn--icon-only`]: hasIconOnly,
     [`${prefix}--btn--selected`]: hasIconOnly && isSelected && kind === 'ghost',
-    [styles.btnSm as string]: true,
+    [styles.btnSm as string ]: true,
     [styles[`cds--btn--sm`] as string]: true,
   });
 

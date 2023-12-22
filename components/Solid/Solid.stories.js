@@ -5,7 +5,7 @@ export default {
   component: Solid,
   argTypes: {
     bg: {
-      options: ["nega", "posi"],
+      options: ["nega", "posi", 203949],
       control: { type: "select" },
     },
     grade: {

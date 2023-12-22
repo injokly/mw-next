@@ -1,19 +1,14 @@
-/*
-We're constantly improving the code you see. 
-Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcNg&d=1152665201300829
-*/
-
 import PropTypes from "prop-types";
 import React from "react";
 import { LineChevronDown24 } from "../../icons/LineChevronDown24";
-
+import styles from './styles.module.css';
 export const Ico = ({
   shape,
   size,
   state,
   icon = <LineChevronDown24 className="line-chevron-down" color="#141414" />,
-}) => {
-  return <div className={`ico ${size} ${shape} ${state}`}>{icon}</div>;
+}:any) => {
+  return <div className={[styles[`ico`], styles[`${size}`], styles[`${shape}`], styles[`${state}`]].join(" ")}>{icon}</div>;
 };
 
 Ico.propTypes = {

@@ -1,4 +1,4 @@
-import { Ico } from "./Ico";
+import { Ico } from ".";
 
 export default {
   title: "Components/Ico",

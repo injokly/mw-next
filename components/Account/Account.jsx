@@ -8,8 +8,10 @@ import { Ctrl } from "../Ctrl";
 import { Info } from "../Info";
 import { TagBackgroundDark } from "../TagBackgroundDark";
 import { Txt } from "../Txt";
+import { Solid } from "../Solid";
 
 export const Account = ({ item }) => {
+  const count="2", horiResizing="fill", solidBg="nega", solidBtnTxt="이체하기", solidGrade="sec"; 
   return (
     <div className="account">
       <div className="auto-layout-vertical">
@@ -62,7 +64,28 @@ export const Account = ({ item }) => {
         />
       </div>
       {item.pdCd==='01011000100000000018' && 
-      <Ctrl className="ctrl-instance" count="2" horiResizing="fill" solidBg="nega" solidBtnTxt="이체하기" solidGrade="sec" />
+      <Ctrl className="ctrl-instance" >
+        <Solid
+        bg={horiResizing === "fill" ? solidBg : "posi"}
+        btnTxt={horiResizing === "fill" ? solidBtnTxt : "#btn_txt"}
+        className={`${horiResizing === "fixed" && "class-4"} ${horiResizing === "fill" && "class-5"}`}
+        elementBtnIcoTxtClassName={`${horiResizing === "fixed" && "class-3"}`}
+        grade={horiResizing === "fill" ? solidGrade : "pri"}
+        showIco="off"
+        size="medium"
+        state="default"
+      />
+      <Solid
+        bg={horiResizing === "fill" ? solidBg : "posi"}
+        btnTxt={horiResizing === "fill" ? solidBtnTxt : "#btn_txt"}
+        className={`${horiResizing === "fixed" && "class-4"} ${horiResizing === "fill" && "class-5"}`}
+        elementBtnIcoTxtClassName={`${horiResizing === "fixed" && "class-3"}`}
+        grade={horiResizing === "fill" ? solidGrade : "pri"}
+        showIco="off"
+        size="medium"
+        state="default"
+      />
+        </Ctrl>
       }
     </div>
   );

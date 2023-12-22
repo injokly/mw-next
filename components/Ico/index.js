@@ -1,1 +1,0 @@
-export { Ico } from "./Ico";

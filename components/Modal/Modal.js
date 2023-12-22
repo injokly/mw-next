@@ -1,4 +1,5 @@
 import React, { cloneElement, createContext, useContext, useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const ModalContext = createContext();
 
@@ -12,19 +13,25 @@ const Modal = ({ children, item, open, onClick }) => {
   const value = { item, isOpen, open, onClick };
   const dynamicStyles = {
     opacity: open ? 1 : 1,
-    display: open ? 'flex' : 'flex',
+    display: open ? "flex" : "flex",
   };
-  
+
+  const popupVariants = {
+    hidden: { scale: 0 },
+    visible: { scale: 1 },
+  };
+
   return (
     <ModalContext.Provider value={value}>
-      <div className="popup-wrap">
-        <div className="kbank-popup-PBKINQ1100000100S_P03 popup-dialog ui-popup ui-full" 
-        style={dynamicStyles}>
-          <div className="popup-section">
-            <div className="popup-group">{children}</div>
-          </div>
+      <motion.div className="popup" variants={popupVariants} animate={open ? "visible" : "hidden"}>
+        <div className="popup-wrap">
+          {/* <div className="kbank-popup-PBKINQ1100000100S_P03 popup-dialog ui-popup ui-full" style={dynamicStyles}>
+            <div className="popup-section"> */}
+          <div className="popup-group">{children}</div>
+          {/* </div>
+          </div> */}
         </div>
-      </div>
+      </motion.div>
     </ModalContext.Provider>
   );
 };
@@ -54,7 +61,9 @@ const Content = ({ children }) => {
               <li className="list-item">
                 <dl className="item-box">
                   <dt className="area-term">거래일시</dt>
-                  <dd className="area-desc">{item.txDt} {item.txHms}</dd>
+                  <dd className="area-desc">
+                    {item.txDt} {item.txHms}
+                  </dd>
                 </dl>
               </li>
               <li className="list-item">
@@ -84,11 +93,11 @@ const Content = ({ children }) => {
 };
 
 const Header = ({ children }) => {
-    const { open } = useContext(ModalContext);
-    useEffect(()=>{
-        //Header 없애줌
-        document.querySelector('#header').style = 'z-index:1';
-    },[])
+  const { open } = useContext(ModalContext);
+  useEffect(() => {
+    //Header 없애줌
+    //        document.querySelector('#header').style = 'z-index:1';
+  }, []);
 
   return (
     <div className="popup-header">
@@ -103,7 +112,13 @@ const Header = ({ children }) => {
 const Close = ({ children }) => {
   const { open, onClick } = useContext(ModalContext);
   return (
-    <button type="button" className="btn-popup-close" onClick={() => {onClick(!open)}}>
+    <button
+      type="button"
+      className="btn-popup-close"
+      onClick={() => {
+        onClick(!open);
+      }}
+    >
       <i aria-hidden="true" className="ico-close-popup"></i>
     </button>
   );
